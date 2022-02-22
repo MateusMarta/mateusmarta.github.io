@@ -72,59 +72,13 @@
 					row.appendTo($("#sampleTableB"));
 				}
 
-				// And one with location data
-				$('#getNavigatorLocation').bind("click",function(){
-					window.navigator.geolocation.getCurrentPosition(function(pos) {
-						var myLocation = new geotools().position(pos.coords.latitude, pos.coords.longitude);
-						$("#sampleTableC").find("tbody tr").each(function() {
-							var arr = $(this).find("td").eq(1).html().match(/([\-\d\.]+)/g);
-							if(arr.length==2){
-								var dest = new geotools().position(arr[0],arr[1]);
-								$(this).find("td").eq(2).html((Math.round(myLocation.distanceTo(dest)/100)/10)+" km");
-							}
-						});
-						$('#sampleTableC td:nth-child(3),#sampleTableC th:nth-child(3)').show();
-						$("#sampleTableC")[0].fancyTable.sortColumn=2;
-						$("#sampleTableC")[0].fancyTable.sortOrder=1;
-						$.fn.fancyTable().tableSort($("#sampleTableC")[0]);
-					});
-				});
-				$('#getZipCodeLocation').bind("click",function(){
-					var myLocation = new geotools().position().fromZip($('#zipCode').val());
-					if(!myLocation.latitude){
-						return;
-					}
-					$("#sampleTableC").find("tbody tr").each(function() {
-						var arr = $(this).find("td").eq(1).html().match(/([\-\d\.]+)/g);
-						if(arr.length==2){
-							var dest = new geotools().position(arr[0],arr[1]);
-							$(this).find("td").eq(2).html((Math.round(myLocation.distanceTo(dest)/100)/10)+" km");
-						}
-					});
-					$('#sampleTableC td:nth-child(3),#sampleTableC th:nth-child(3)').show();
-					$("#sampleTableC")[0].fancyTable.sortColumn=2;
-					$("#sampleTableC")[0].fancyTable.sortOrder=1;
-					$.fn.fancyTable().tableSort($("#sampleTableC")[0]);
-				});
-				$('#sampleTableC td:nth-child(2),#sampleTableC th:nth-child(2)').hide();
-				$('#sampleTableC td:nth-child(3),#sampleTableC th:nth-child(3)').hide();
 
 				// And make them fancy
 				var fancyTableA = $("#sampleTableA").fancyTable({
 					sortColumn:0,
 					pagination: true,
-					perPage:5,
+					perPage:50,
 					globalSearch:true
-				});
-				$("#sampleTableB").fancyTable({
-					pagination: true,
-					perPage:5
-				});
-				$("#sampleTableC").fancyTable({
-					searchable: false
-				});
-				$("#sampleTableD").fancyTable({
-					searchable: false					
 				});
 			});
 		</script>
