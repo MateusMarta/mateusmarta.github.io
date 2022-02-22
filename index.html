@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              ontent="width=device-width, 
+                 initial-scale=1, shrink-to-fit=no">
+          
+        <link href=
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+         rel="stylesheet">
+    </head>
+    <body><br/>
+      
+        <div class="container">
+            <h3 style="">
+              Table with search and sortable headings 
+            </h3>
+            <table id="mytableID" style="width:100%" 
+                   class="table table-striped sampleTable"> 
+            <tr> 
+                <th>Firstname</th> 
+                <th>Lastname</th> 
+                <th>Age</th> 
+            </tr> 
+            <tr> 
+                <td>Priya</td> 
+                <td>Sharma</td> 
+                <td>24</td> 
+            </tr> 
+            <tr> 
+                <td>Arun</td> 
+                <td>Singh</td> 
+                <td>32</td> 
+            </tr> 
+            <tr> 
+                <td>Samy</td> 
+                <td>Watson</td> 
+                <td>41</td> 
+            </tr> 
+            <tr> 
+                <td>Samsamder</td> 
+                <td>Watra</td> 
+                <td>42</td> 
+            </tr> 
+            <tr> 
+                <td>Samantha</td> 
+                <td>Challa</td> 
+                <td>31</td> 
+            </tr> 
+            <tr> 
+                <td>Samuel</td> 
+                <td>Miranda</td> 
+                <td>45</td> 
+            </tr> 
+            <tr> 
+                <td>Samy</td> 
+                <td>Joseph</td> 
+                <td>37</td> 
+            </tr> 
+                  </table> 
+              
+        </div>
+        <script  src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js">
+        </script>
+        <script src="fancyTable.js">
+        </script>
+        <script type="text/javascript">
+              
+            $(document).ready(function() {
+                $(".sampleTable").fancyTable({
+                  /* Column number for initial sorting*/
+                   sortColumn:0,
+                   /* Setting pagination or enabling */
+                   pagination: true,
+                   /* Rows per page kept for display */
+                   perPage:3,
+                   globalSearch:true
+                   });
+                              
+            });
+        </script>
+    </body>
+</html>
