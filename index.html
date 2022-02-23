@@ -18,6 +18,18 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+					  <td>2065</td>
+					  <td>51.395951</td>
+					  <td>1.556115</td>
+					  <td>João Grilo</td>
+					</tr>
+					<tr>
+					  <td>2304</td>
+					  <td>50.625484</td>
+					  <td>2.122266</td>
+					  <td>Miguel Silva</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -29,19 +41,6 @@
 
 		<script src="../src/fancyTable.js"></script>
 		<script type="text/javascript">
-			// Word genarator
-			$(document).ready(function() {
-				// Generate a big table
-				for(var n=0;n<1000;n++){
-					var row = $("<tr>");
-					$("#sampleTableA").find("thead th").each(function() {
-						$("<td>",{
-							html: "a",
-							style:"padding:2px;"
-						}).appendTo($(row));
-					});
-					row.appendTo($("#sampleTableA").find("tbody"));
-				}
 
 				// And make them fancy
 				var fancyTableA = $("#sampleTableA").fancyTable({
