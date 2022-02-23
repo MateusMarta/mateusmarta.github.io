@@ -9,7 +9,7 @@
 	$.fn.fancyTable = function(options) {
 		var settings = $.extend({
 			inputStyle: "",
-			inputPlaceholder: "Search...",
+			inputPlaceholder: "Pesquisa...",
 			pagination: false,
 			paginationClass: "btn btn-light",
 			paginationClassActive: "active",
