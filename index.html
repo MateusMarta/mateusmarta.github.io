@@ -44,22 +44,6 @@
 					});
 					row.appendTo($("#sampleTableA").find("tbody"));
 				}
-				// Load data simulation
-				$("#loadDataSimulation").click(function() {
-					$(fancyTableA).find("tbody").empty();
-					for(var n=0;n<1000;n++){
-						var row = $("<tr>");
-						$(fancyTableA).find("thead tr:nth-child(1) th").each(function() {
-							$("<td>",{
-								html: rWord(8),
-								style:"padding:2px;"
-							}).appendTo($(row));
-						});
-						row.appendTo($(fancyTableA).find("tbody"));
-					}
-					fancyTableA.reinit();
-				});
-
 
 				// And make them fancy
 				var fancyTableA = $("#sampleTableA").fancyTable({
