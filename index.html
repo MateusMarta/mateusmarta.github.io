@@ -12,12 +12,19 @@
 			<table id="sampleTableA" class="table table-striped sampleTable">
 				<thead>
 					<tr>
-						<th>Col A</th>
-						<th>Col B</th>
-						<th>Col C</th>
+				  		<th></th>
+				  		<th>numero</th>
+				  		<th>rating</th>
+				  		<th>incerteza</th>
+				  		<th>nome</th>
 					</tr>
 				</thead>
 				<tbody>
+					<th>2065</th>
+				  	<td>2065</td>
+				  	<td>51.395951</td>
+				  	<td>1.556115</td>
+				  	<td>João Grilo</td>
 				</tbody>
 			</table>
 		</div>
@@ -29,21 +36,6 @@
 
 		<script src="../src/fancyTable.js"></script>
 		<script type="text/javascript">
-			// Word genarator
-			function rWord(r){var t,n="bcdfghjklmnpqrstvwxyz",a="aeiou",e=function(r){return Math.floor(Math.random()*r)},o="";r=parseInt(r,10),n=n.split(""),a=a.split("");for(t=0;t<r/2;t++){var l=n[e(n.length)],p=a[e(a.length)];o+=0===t?l.toUpperCase():l,o+=2*t<r-1?p:""}return o}
-
-			$(document).ready(function() {
-				// Generate a big table
-				for(var n=0;n<1000;n++){
-					var row = $("<tr>");
-					$("#sampleTableA").find("thead th").each(function() {
-						$("<td>",{
-							html: rWord(8),
-							style:"padding:2px;"
-						}).appendTo($(row));
-					});
-					row.appendTo($("#sampleTableA").find("tbody"));
-				}
 
 				// And make them fancy
 				var fancyTableA = $("#sampleTableA").fancyTable({
