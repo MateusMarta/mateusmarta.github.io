@@ -19,11 +19,11 @@
 			<table id="sampleTableA" class="table table-striped sampleTable">
 				<thead>
 					<tr>
-						<th data-sortas="numeric">Posição</th>
-						<th data-sortas="numeric">Número</th>
+						<th data-sortas="numeric"></th>
 						<th>Nome</th>
 						<th data-sortas="numeric">Rating</th>
 						<th data-sortas="numeric">Incerteza</th>
+                                                <th data-sortas="numeric">Licença FPB</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -54,7 +54,7 @@
 
 				// And make them fancy
 				var fancyTableA = $("#sampleTableA").fancyTable({
-					sortColumn:3,
+					sortColumn:2,
 					pagination: true,
 					perPage:25,
 					sortOrder: 'descending',
