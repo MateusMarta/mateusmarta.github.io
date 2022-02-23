@@ -59,18 +59,6 @@
 					}
 					fancyTableA.reinit();
 				});
-				// And a simple one
-				for(var n=0;n<10;n++){
-					var row = $("<tr>");
-					for(var nn=0;nn<5;nn++){
-						$("<td>",{
-							html: rWord(8),
-							style:"padding:2px;"
-						}).appendTo($(row));
-					}
-					$(row).find("td:last").first().html(   moment(new Date(Math.floor(new Date().getTime()*Math.random()))).format('l')   );
-					row.appendTo($("#sampleTableB"));
-				}
 
 
 				// And make them fancy
