@@ -47,8 +47,11 @@
 					var a=0;
 					$("#sampleTableA").find("thead th").each(function() {
 						i++;
+						if (i==1){
+							a=2
+						}
 						$("<td>",{
-							html: n,
+							html: a,
 							style:"padding:2px;"
 						}).appendTo($(row));
 					});
