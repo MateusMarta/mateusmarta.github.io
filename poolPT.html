@@ -43,7 +43,10 @@
 				// Generate a big table
 				for(var n=0;n<1000;n++){
 					var row = $("<tr>");
+					var i=0;
+					var a=0;
 					$("#sampleTableA").find("thead th").each(function() {
+						i++;
 						$("<td>",{
 							html: n,
 							style:"padding:2px;"
