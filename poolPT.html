@@ -47,15 +47,17 @@
 					var a=0;
 					$("#sampleTableA").find("thead th").each(function() {
 						i++;
-						if (i==1){
-							var a=2;
+						if (i==2){
+							$("<td>",{
+								html: "Joao",
+								style:"padding:2px;"
+							}).appendTo($(row));
 						} else {
-							let a="Joao";
+							$("<td>",{
+								html: 2,
+								style:"padding:2px;"
+							}).appendTo($(row));
 						}
-						$("<td>",{
-							html: a,
-							style:"padding:2px;"
-						}).appendTo($(row));
 					});
 					row.appendTo($("#sampleTableA").find("tbody"));
 				}
