@@ -14,7 +14,7 @@
 				<thead>
 					<tr>
 						<th>Número</th>
-						<th>Rating</th>
+						<th data-sortas="numeric">Rating</th>
 						<th>Incerteza</th>
 						<th>Nome</th>
 					</tr>
@@ -37,7 +37,7 @@
 				for(var n=0;n<1000;n++){
 					var row = $("<tr>");
 					$("#sampleTableA").find("thead th").each(function() {
-						$("<td data-sortas="numeric">",{
+						$("<td>",{
 							html: n,
 							style:"padding:2px;"
 						}).appendTo($(row));
