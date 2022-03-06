@@ -1,4 +1,4 @@
 User-agent: *
 Allow: *
 
-Sitemap: https://www.bilhar.top/sitemal.xml
+Sitemap: https://www.bilhar.top/sitemap.xml
