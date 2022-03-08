@@ -39,7 +39,8 @@
 	<script>
 		$(document).ready(function() {
 			$('#table1').DataTable( {
-				"ajax": 'data.json'
+				"ajax": 'data.json',
+				"deferRender": true
 			} );
 		} );
 	
