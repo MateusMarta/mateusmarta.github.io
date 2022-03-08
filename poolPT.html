@@ -40,7 +40,8 @@
 		$(document).ready(function() {
 			$('#table1').DataTable( {
 				"ajax": 'data.json',
-				"deferRender": true
+				"deferRender": true,
+				"lengthMenu": [ 15, 25, 50, 100 ]
 			} );
 		} );
 	
