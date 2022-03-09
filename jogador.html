@@ -42,7 +42,7 @@ i am text after
             //usage:
             readTextFile("/json/pool.json", function(text){
                 let data = JSON.parse(text);
-  		document.getElementById('mb_ad').innerHTML = "<h1>" + data["data"][value][2] + "</h1>";
+  		document.getElementById('mb_ad').innerHTML += "<h1>" + data["data"][value][2] + "</h1>";
             });
             </script>
 			<br>
