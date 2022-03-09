@@ -37,8 +37,9 @@
             //usage:
             readTextFile("/json/pool.json", function(text){
                 let data = JSON.parse(text);
+		document.write(data[value]);
             });
-            document.write(data);
+            
             </script>
 			<br>
 			<h4>Sobre</h4>
