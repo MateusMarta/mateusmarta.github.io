@@ -22,9 +22,24 @@
               });
               // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
               let value = params.lic; // "some_value"
-              let a = fs.readFileSync("json/pool.json");
-              let b = JSON.parse(a);
-              document.write(b[value]);
+              function readTextFile(file, callback) {
+                var rawFile = new XMLHttpRequest();
+                rawFile.overrideMimeType("application/json");
+                rawFile.open("GET", file, true);
+                rawFile.onreadystatechange = function() {
+                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                        callback(rawFile.responseText);
+                    }
+                }
+                rawFile.send(null);
+            }
+
+            //usage:
+            readTextFile("/json/pool.json", function(text){
+                var data = JSON.parse(text);
+                console.log(data);
+            });
+            document.write(data);
             </script>
 			<br>
 			<h4>Sobre</h4>
