@@ -21,8 +21,10 @@
                 get: (searchParams, prop) => searchParams.get(prop),
               });
               // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-              let value = params.some_key; // "some_value"
-              document.write(value);
+              let value = params.lic; // "some_value"
+              let a = fs.readFileSync("json/pool.json");
+              let b = JSON.parse(a);
+              document.write(b[value]);
             </script>
 			<br>
 			<h4>Sobre</h4>
