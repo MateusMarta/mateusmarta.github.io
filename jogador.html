@@ -17,6 +17,7 @@
 				<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 			</a></p>
             <script>
+	    var asdiop;
             const params = new Proxy(new URLSearchParams(window.location.search), {
                 get: (searchParams, prop) => searchParams.get(prop),
               });
@@ -37,9 +38,9 @@
             //usage:
             readTextFile("/json/pool.json", function(text){
                 let data = JSON.parse(text);
-		document.write(data["data"][value][2]);
+		asdiop = data["data"][value][2];
             });
-            
+            document.write(asdiop);
             </script>
 			<br>
 			<h4>Sobre</h4>
