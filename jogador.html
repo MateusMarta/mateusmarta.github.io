@@ -16,8 +16,10 @@
 				<br>
 				<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 			</a></p>
-            <script>
-	    let asdiop;
+	i am text before
+<div id="mb_ad"></div>
+i am text after
+            <script type="text/javascript">
             const params = new Proxy(new URLSearchParams(window.location.search), {
                 get: (searchParams, prop) => searchParams.get(prop),
               });
@@ -38,9 +40,8 @@
             //usage:
             readTextFile("/json/pool.json", function(text){
                 let data = JSON.parse(text);
-		asdiop = data["data"][value][2];
+  		document.getElementById('mb_ad').innerHTML = data["data"][value][2];
             });
-            document.write(asdiop);
             </script>
 			<br>
 			<h4>Sobre</h4>
