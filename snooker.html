@@ -12,9 +12,35 @@
 		<body style="margin-bottom:1vh;">
 		<style>
 		.ButtonState{display:none}
-		.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; 
-		cursor:pointer;}
-		.ButtonState:checked + .Button{background:#fff;}
+.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; 
+cursor:pointer;  appearance: none;
+  background-color: #e0e0e0;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;}
+.ButtonState:checked + .Button{background:#fcfcfc;}
+.Button:hover {
+  background-color: #ebebeb;
+  text-decoration: none;
+  transition-dur
 		</style>
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
