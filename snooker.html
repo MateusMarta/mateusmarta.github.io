@@ -54,7 +54,7 @@ cursor:pointer;  appearance: none;
 					<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 				</a></p>
 		<br>
-	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('Geral');"/>
+	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('geral');"/>
 	<label class="Button" for="Button1">Geral</label>
 	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT');"/>
 	<label class="Button" for="Button2">PoolPT</label>
@@ -64,8 +64,6 @@ cursor:pointer;  appearance: none;
 	<label class="Button" for="Button4">Carambola</label>
 	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5" onclick="changeparagraph('snooker');"/>
 	<label class="Button" for="Button5">Snooker</label>
-				<br>
-				<div id="mb_ad"></div>
 				<br>
 		<select class="js-data-example-ajax"></select>
 	<table id="table1" class="display" style="width:100%">
@@ -94,10 +92,9 @@ cursor:pointer;  appearance: none;
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
-				"lengthMenu": [ 2, 25, 50, 100 ]
+				"lengthMenu": [ 15, 25, 50, 100 ]
 			} );
 		} );
-		document.getElementById('mb_ad').innerHTML = "<h3>Ranking " + fa + "</h3>";
 	}
 	</script>
 
