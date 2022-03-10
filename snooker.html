@@ -46,7 +46,7 @@
 	function changeparagraph() {
 		$(document).ready(function() {
 			table.destroy();
-			$('#table1').DataTable( {
+			table = $('#table1').DataTable( {
 				"ajax": 'json/snooker.json',
 				"deferRender": true,
 				"lengthMenu": [ 2, 25, 50, 100 ]
