@@ -28,13 +28,13 @@
 		<br>
 	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('Geral');"/>
 	<label class="Button" for="Button1">Geral</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('PoolPT');"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT');"/>
 	<label class="Button" for="Button2">PoolPT</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3" onclick="changeparagraph('pool');"/>
 	<label class="Button" for="Button3">Pool</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4" onclick="changeparagraph('carambola');"/>
 	<label class="Button" for="Button4">Carambola</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5" onclick="changeparagraph('snooker');"/>
 	<label class="Button" for="Button5">Snooker</label>
 				<br>
 				<div id="mb_ad"></div>
@@ -63,7 +63,7 @@
 		$(document).ready(function() {
 			table.destroy();
 			table = $('#table1').DataTable( {
-				"ajax": 'json/snooker.json',
+				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 2, 25, 50, 100 ]
 			} );
