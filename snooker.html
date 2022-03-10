@@ -10,11 +10,25 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 		<body style="margin-bottom:1vh;">
-		<button onclick="changeparagraph()">Change Paragraph</button>
+		<style>
+		.ButtonState{display:none}
+		.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; 
+		cursor:pointer;}
+		.ButtonState:checked + .Button{background:#fff;}
+		</style>
 		</head>
 	
 	<body>
-	<button onclick="changeparagraph()">Change Paragraph</button>
+	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph();"/>
+	<label class="Button" for="Button1">Geral</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2"/>
+	<label class="Button" for="Button2">PoolPT</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
+	<label class="Button" for="Button3">Pool</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4"/>
+	<label class="Button" for="Button4">Carambola</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5"/>
+	<label class="Button" for="Button5">Snooker</label>
 	<div class="container">
 	<p><a href="index.html">
 					<img src="logo.png" alt="Home" width=230>
