@@ -27,9 +27,9 @@
 				</a></p>
 				<div id="mb_ad"></div>
 				<br>
-	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph();"/>
+	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph(123);"/>
 	<label class="Button" for="Button1">Geral</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph(234);"/>
 	<label class="Button" for="Button2">PoolPT</label>
 	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
 	<label class="Button" for="Button3">Pool</label>
@@ -57,7 +57,7 @@
 	
 		
 	<script>
-	function changeparagraph() {
+	function changeparagraph(fa) {
 		$(document).ready(function() {
 			table.destroy();
 			table = $('#table1').DataTable( {
@@ -66,7 +66,7 @@
 				"lengthMenu": [ 2, 25, 50, 100 ]
 			} );
 		} );
-		document.getElementById('mb_ad').innerHTML += "<h3>Ranking " + "PoolPT" + "</h3>";
+		document.getElementById('mb_ad').innerHTML = "<h3>Ranking " + fa + "</h3>";
 	}
 	</script>
 
