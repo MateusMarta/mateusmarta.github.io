@@ -45,6 +45,7 @@
 	<script>
 	function changeparagraph() {
 		$(document).ready(function() {
+			$('#table1').dataTable().fnClearTable();
 			$('#table1').DataTable( {
 				"ajax": 'json/snooker.json',
 				"deferRender": true,
