@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+		<meta name='description' content='Ranking das várias modalidades de bilhar, baseados nos resultados dos jogos individuais da Federação Portuguesa de Bilhar, disponíveis no portal bilhar.'>
+		<title>bilhar.top | Rankings de bilhar em Portugal</title>
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<p></p>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+		<body style="margin-bottom:1vh;">
+		<style>
+		.ButtonState{display:none}
+.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; 
+cursor:pointer;  appearance: none;
+  background-color: #e0e0e0;
+  border: 1px solid rgba(27, 31, 35, 0.3);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 7px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;}
+.ButtonState:checked + .Button{background:#fcfcfc;}
+.Button:active {
+  background-color: #ffffff;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+.Button:hover {
+  background-color: #ebebeb;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+		</style>
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		</head>
+	
+	<body>
+	<div class="container">
+	<p><a href="index.html">
+					<img src="logo.png" alt="Home" width=230>
+					<br>
+					<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
+				</a></p>
+		<p></p>
+	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('geral');"/>
+	<label class="Button" for="Button1">Geral</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT');"/>
+	<label class="Button" for="Button2">PoolPT</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3" onclick="changeparagraph('pool');"/>
+	<label class="Button" for="Button3">Pool</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4" onclick="changeparagraph('carambola');"/>
+	<label class="Button" for="Button4">Carambola</label>
+	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5" onclick="changeparagraph('snooker');"/>
+	<label class="Button" for="Button5">Snooker</label>
+	<p></p>
+	<table id="table1" class="display" style="width:100%">
+	<thead>
+		<tr>
+		<th></th>
+		<th>Nome</th>
+		<th>Rating</th>
+		<th>Incerteza</th>
+		<th>Licença FPB</th>
+		</tr>
+	</thead>
+	</table>
+	</div>
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/filtering/type-based/accent-neutralise.js"></script>
+	
+		
+	<script>
+	function changeparagraph(fa) {
+		$(document).ready(function() {
+			table.destroy();
+			table = $('#table1').DataTable( {
+				"ajax": 'json/'+fa+'.json',
+				"deferRender": true,
+				"lengthMenu": [ 15, 25, 50, 100 ]
+			} );
+		} );
+	}
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			table = $('#table1').DataTable( {
+				"ajax": 'json/snooker.json',
+				"deferRender": true,
+				"lengthMenu": [ 15, 25, 50, 100 ]
+			} );
+		} );
+	
+	</script>
+</html>
