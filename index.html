@@ -83,8 +83,10 @@ cursor:pointer;  appearance: none;
 	</thead>
 	</table>
         <p></p>
-        <h2>
-	Estatísticas da Modalidade
+	<h2>
+	<div id="modalidade">
+	Estatísticas Geral 
+	</div>
 	</h2>
 	Disponível brevemente...
         <p></p>
@@ -120,6 +122,7 @@ O modelo matemático está em constante melhoramento, sendo que em breve será a
 				"lengthMenu": [ 15, 25, 50, 100 ]
 			} );
 		} );
+		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 	}
 	</script>
 
