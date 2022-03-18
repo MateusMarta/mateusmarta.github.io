@@ -85,13 +85,13 @@ cursor:pointer;  appearance: none;
         <p></p>
 	<h2>
 	<div id="modalidade">
-	Estatísticas Geral 
+	Estatísticas geral
 	</div>
 	</h2>
 	Disponível brevemente...
         <p></p>
         <h2>
-	Simulador de Resultados
+	Simulador de resultados
 	</h2>
 	Disponível brevemente...
         <p></p>
@@ -119,7 +119,7 @@ O modelo matemático está em constante melhoramento, sendo que em breve será a
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
-				"lengthMenu": [ 15, 25, 50, 100 ]
+				"lengthMenu": [ 10, 25, 50, 100 ]
 			} );
 		} );
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
@@ -131,7 +131,7 @@ O modelo matemático está em constante melhoramento, sendo que em breve será a
 			table = $('#table1').DataTable( {
 				"ajax": 'json/geral.json',
 				"deferRender": true,
-				"lengthMenu": [ 15, 25, 50, 100 ]
+				"lengthMenu": [ 10, 25, 50, 100 ]
 			} );
 		} );
 	
