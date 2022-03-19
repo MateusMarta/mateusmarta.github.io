@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-<script src=
-"
-https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
-">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 		<meta name='description' content='Rankings das várias modalidades de bilhar, baseados nos resultados dos jogos individuais da Federação Portuguesa de Bilhar.'>
@@ -97,11 +93,6 @@ cursor:pointer;  appearance: none;
         <h2>
 	Simulador de resultados
 	</h2>
-<select class="js-example-basic-single">
-  <option value="AL">Alabama</option>
-    ...
-  <option value="WY">Wyoming</option>
-</select>
 	Disponível brevemente...
         <p></p>
         <h2>
@@ -118,7 +109,7 @@ O modelo matemático está em constante melhoramento, sendo que em breve será a
 	
 	<script type="text/javascript" src="jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/filtering/type-based/accent-neutralise.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		
 	<script>
 	function changeparagraph(fa) {
@@ -141,7 +132,6 @@ O modelo matemático está em constante melhoramento, sendo que em breve será a
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ]
 			} );
-                $(".js-example-basic-single").select2();
 		} );
 	
 	</script>
