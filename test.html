@@ -31,10 +31,6 @@
 					return normalcdf((mu_a - mu_b)/ Math.sqrt((625/18) + sigma_a**2 + sigma_b**2));
 				}
 				$(".table").select2();
-				var $mu_a = 25;
-				var $mu_b = 25;
-				var $sigma_a = 25/3;
-				var $sigma_b = 25/3;
 				$("#this").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_a = json.data[e.params.data.id][2];
 										var $sigma_a = json.data[e.params.data.id][3];
