@@ -38,9 +38,9 @@
 				$("#this").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_a = json.data[e.params.data.id][2];
 										var $sigma_a = json.data[e.params.data.id][3];
-										console.log($("that").select2('data'));
-										var $mu_b = json.data[$("that").select2('data')][2];
-										var $sigma_b = json.data[$("that").select2('data')][3];
+										console.log($("that").find(':selected'));
+										var $mu_b = json.data[$("that").find(':selected')][2];
+										var $sigma_b = json.data[$("that").find(':selected')][3];
 										console.log("mu_a", $mu_a);
 										console.log("sigma_a", $sigma_a);
 										console.log("mu_b", $mu_b);
@@ -51,8 +51,8 @@
 				$("#that").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_b = json.data[e.params.data.id][2];
 										var $sigma_b = json.data[e.params.data.id][3];
-										var $mu_a = json.data[$("this").select2('data')][2];
-										var $sigma_a = json.data[$("this").select2('data')][3];
+										var $mu_a = json.data[$("this").find(':selected')][2];
+										var $sigma_a = json.data[$("this").find(':selected')][3];
 										console.log("mu_a", $mu_a);
 										console.log("sigma_a", $sigma_a);
 										console.log("mu_b", $mu_b);
