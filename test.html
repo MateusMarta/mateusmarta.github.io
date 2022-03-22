@@ -15,10 +15,35 @@
 				$eventSelect.select2();
 				$("#this").on("select2:select", function (e) { document.getElementById('selecao').innerHTML = e.params.data.id; });
 				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
-				$("#this").on("select2:select", function (e) { console.log(e.params.data.id); });
+				$("#this").on("select2:select", function (e) { console.log(e.params.data.id); 
+									      $.getJSON("json/data.json", function(json) {
+    										console.log(json);
+										});
+									      console.log(e.params.data.id); });
 				$("#that").on("select2:select", function (e) { console.log(e.params.data.id); });
 				$("#this").on("select2:select", function (e) { $a = e.params.data.id; document.getElementById('prod').innerHTML = $a*$b; });
 				$("#that").on("select2:select", function (e) { $b = e.params.data.id; document.getElementById('prod').innerHTML = $a*$b; });
+				function normalcdf(to)
+				{
+				    var z = (to)/Math.sqrt(2);
+				    var t = 1/(1+0.3275911*Math.abs(z));
+				    var a1 =  0.254829592;
+				    var a2 = -0.284496736;
+				    var a3 =  1.421413741;
+				    var a4 = -1.453152027;
+				    var a5 =  1.061405429;
+				    var erf = 1-(((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-z*z);
+				    var sign = 1;
+				    if(z < 0)
+				    {
+				        sign = -1;
+				    }
+				    return (1/2)*(1+sign*erf);
+				}
+				function prob(mu_a, sigma_a, mu_b, sigma_b)
+				{
+					return normalcdf((mu_a - mu_b)/ Math.sqrt((625/18) + sigma_a**2 + sigma_b**2));
+				}
 			});
 		</script>
 	</head>
