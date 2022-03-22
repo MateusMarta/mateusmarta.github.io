@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<div id="selecao">previous</div>
+		<div id="seleca">previous</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -9,15 +10,21 @@
 			$(document).ready(function() {
 				var $eventSelect = $(".table");
 				$eventSelect.select2();
-				$eventSelect.on("select2:select", function (e) { console.log(e.params.data); });
+				$("#this").on("select2:select", function (e) { document.getElementById('selecao').innerHTML = e.params.data.id; });
+				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
 			});
 		</script>
 	</head>
 	<body>
 		<select class="table" id="this">
-		  <option value="AL">Alabama</option>
+		  <option value=1>1</option>
 		    ...
-		  <option value="WY">Wyoming</option>
+		  <option value=2>2</option>
+		</select>
+		<select class="table" id="that">
+		  <option value=1>1</option>
+		    ...
+		  <option value=2>2</option>
 		</select>
 	</body>
 </html>
