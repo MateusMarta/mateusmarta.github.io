@@ -38,6 +38,7 @@
 				$("#this").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_a = json.data[e.params.data.id][2];
 										var $sigma_a = json.data[e.params.data.id][3];
+										console.log($("that").select2('data'));
 										var $mu_b = json.data[$("that").select2('data')][2];
 										var $sigma_b = json.data[$("that").select2('data')][3];
 										console.log("mu_a", $mu_a);
