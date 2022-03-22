@@ -16,9 +16,6 @@ $(document).ready(function() {
   $(".js-example-basic-single").select2();
 });
 $(".js-example-basic-single").on('select2:select', function (e) {
-  document.getElementById('selecao').innerHTML = $(".js-example-basic-single").select2(':selected');
-});
-$(".js-example-basic-single").on('select2:select', function (e) {
     var data = e.params.data;
     document.getElementById('selecao').innerHTML = data;
 });
