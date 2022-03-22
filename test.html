@@ -9,68 +9,47 @@
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+				function normalcdf(to)
+				{
+				    var z = (to)/Math.sqrt(2);
+				    var t = 1/(1+0.3275911*Math.abs(z));
+				    var a1 =  0.254829592;
+				    var a2 = -0.284496736;
+				    var a3 =  1.421413741;
+				    var a4 = -1.453152027;
+				    var a5 =  1.061405429;
+				    var erf = 1-(((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-z*z);
+				    var sign = 1;
+				    if(z < 0)
+				    {
+				        sign = -1;
+				    }
+				    return (1/2)*(1+sign*erf);
+				}
+				function prob(mu_a, sigma_a, mu_b, sigma_b)
+				{
+					return normalcdf((mu_a - mu_b)/ Math.sqrt((625/18) + sigma_a**2 + sigma_b**2));
+				}
 				$(".table").select2();
 				var $mu_a = 25;
 				var $mu_b = 25;
 				var $sigma_a = 25/3;
 				var $sigma_b = 25/3;
-				$("#this").on("select2:select", function (e) {				function normalcdf(to)
-				{
-				    var z = (to)/Math.sqrt(2);
-				    var t = 1/(1+0.3275911*Math.abs(z));
-				    var a1 =  0.254829592;
-				    var a2 = -0.284496736;
-				    var a3 =  1.421413741;
-				    var a4 = -1.453152027;
-				    var a5 =  1.061405429;
-				    var erf = 1-(((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-z*z);
-				    var sign = 1;
-				    if(z < 0)
-				    {
-				        sign = -1;
-				    }
-				    return (1/2)*(1+sign*erf);
-				}
-				function prob(mu_a, sigma_a, mu_b, sigma_b)
-				{
-					return normalcdf((mu_a - mu_b)/ Math.sqrt((625/18) + sigma_a**2 + sigma_b**2));
-				}
-									      $.getJSON("json/geral.json", function(json) {
+				$("#this").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_a = json.data[e.params.data.id][2];
 										var $sigma_a = json.data[e.params.data.id][3];
 										console.log("mu", $mu_a);
 										console.log("sigma", $sigma_a);
+										console.log(prob($mu_a, $sigma_a, $mu_b, $sigma_b));
 										});
-									      	console.log(prob($mu_a, $sigma_a, $mu_b, $sigma_b));
 									       });
-				$("#that").on("select2:select", function (e) {				function normalcdf(to)
-				{
-				    var z = (to)/Math.sqrt(2);
-				    var t = 1/(1+0.3275911*Math.abs(z));
-				    var a1 =  0.254829592;
-				    var a2 = -0.284496736;
-				    var a3 =  1.421413741;
-				    var a4 = -1.453152027;
-				    var a5 =  1.061405429;
-				    var erf = 1-(((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-z*z);
-				    var sign = 1;
-				    if(z < 0)
-				    {
-				        sign = -1;
-				    }
-				    return (1/2)*(1+sign*erf);
-				}
-				function prob(mu_a, sigma_a, mu_b, sigma_b)
-				{
-					return normalcdf((mu_a - mu_b)/ Math.sqrt((625/18) + sigma_a**2 + sigma_b**2));
-				}
-									      $.getJSON("json/geral.json", function(json) {
+				$("#that").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
 										var $mu_b = json.data[e.params.data.id][2];
 										var $sigma_b = json.data[e.params.data.id][3];
 										console.log("mu", $mu_b);
 										console.log("sigma", $sigma_b);
-										});
 									      	console.log(prob($mu_a, $sigma_a, $mu_b, $sigma_b));
+										});
 									       });
 				
 			});
