@@ -17,6 +17,7 @@ $(document).ready(function() {
 });
 $(".table").on('select2:select', function (e) {
     var data = e.params.data;
+	console.log(data);
     document.getElementById('selecao').innerHTML = data;
 });
 </script>
