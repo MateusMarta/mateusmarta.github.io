@@ -17,8 +17,8 @@
 				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
 				$("#this").on("select2:select", function (e) { console.log(e.params.data.id); 
 									      $.getJSON("json/geral.json", function(json) {
-										console.log("mu", json[e.params.data.id][2]);
-										console.log("sigma", json[e.params.data.id][3]);
+										console.log("mu", json[0][e.params.data.id][2]);
+										console.log("sigma", json[0][e.params.data.id][3]);
 										});
 									       });
 				$("#that").on("select2:select", function (e) { console.log(e.params.data.id); });
