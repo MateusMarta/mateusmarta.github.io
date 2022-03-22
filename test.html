@@ -3,11 +3,21 @@
 	<head>
 		<div id="j1"></div>
 		<div id="j2"></div>
+		<p id="log"></p>
+		<input placeholder="Número de jogos" name="name"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+				const input = document.querySelector('input');
+				const log = document.getElementById('log');
+				
+				input.addEventListener('change', updateValue);
+				
+				function updateValue(e) {
+				  log.textContent = e.target.value;
+				}
 				function normalcdf(to)
 				{
 				    var z = (to)/Math.sqrt(2);
@@ -45,6 +55,7 @@
 										console.log("sigma_b", $sigma_b);
 										var p1 = prob($mu_a, $sigma_a, $mu_b, $sigma_b)
 										document.getElementById('j1').innerHTML = "Probabilidade do jogador 1 ganhar: " + p1*100 + "%";
+										document.getElementById('j2').innerHTML = "Probabilidade do jogador 2 ganhar: " + (1-p1)*100 + "%";
 										document.getElementById('j2').innerHTML = "Probabilidade do jogador 2 ganhar: " + (1-p1)*100 + "%";
 										});
 									       });
