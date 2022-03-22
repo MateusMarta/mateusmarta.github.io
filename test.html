@@ -18,8 +18,6 @@
 				$("#this").on("select2:select", function (e) { console.log(e.params.data.id); 
 									      $.getJSON("json/geral.json", function(json) {
 										console.log(json);
-										json = JSON.parse(json);
-    										console.log(json);
 										});
 									       });
 				$("#that").on("select2:select", function (e) { console.log(e.params.data.id); });
