@@ -15,7 +15,7 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 $(document).ready(function() {
   $(".table").select2();
 });
-$("#table").on('select2:select', function (e) {
+$(".table").on('select2:select', function (e) {
     var data = e.params.data;
     document.getElementById('selecao').innerHTML = data;
 });
