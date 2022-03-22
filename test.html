@@ -3,6 +3,7 @@
 	<head>
 		<div id="selecao">previous</div>
 		<div id="seleca">previous</div>
+		<div id="prod">previous</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -12,23 +13,23 @@
 				var $a = 1;
 				var $b = 1;
 				$eventSelect.select2();
-				$("#this").on("change", function (e) { document.getElementById('selecao').innerHTML = e.params.data; });
-				$("#that").on("change", function (e) { document.getElementById('seleca').innerHTML = e.params.data; });
-				$("#this").on("change", function (e) { console.log(e.params.data); });
-				$("#that").on("change", function (e) { console.log(e.params.data); });
-				$("#this").on("change", function (e) { $a = e.params.data; });
-				$("#that").on("change", function (e) { $b = e.params.data; });
+				$("#this").on("select2:select", function (e) { document.getElementById('selecao').innerHTML = e.params.data; });
+				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data; });
+				$("#this").on("select2:select", function (e) { console.log(e.params.data); });
+				$("#that").on("select2:select", function (e) { console.log(e.params.data); });
+				$("#this").on("select2:select", function (e) { $a = e.params.data; document.getElementById('prod').innerHTML = $a*$b; });
+				$("#that").on("select2:select", function (e) { $b = e.params.data; document.getElementById('prod').innerHTML = $a*$b; });
 			});
 		</script>
 	</head>
 	<body>
 		<select class="table" id="this">
-		  <option value=1>1</option>
+		  <option value=3>3</option>
 		    ...
 		  <option value=2>2</option>
 		</select>
 		<select class="table" id="that">
-		  <option value=1>1</option>
+		  <option value=3>3</option>
 		    ...
 		  <option value=2>2</option>
 		</select>
