@@ -16,10 +16,12 @@
 				$("#this").on("select2:select", function (e) { document.getElementById('selecao').innerHTML = e.params.data.id; });
 				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
 				$("#this").on("select2:select", function (e) { console.log(e.params.data.id); 
-									      $.getJSON("json/data.json", function(json) {
+									      $.getJSON("json/geral.json", function(json) {
+										console.log(json);
+										json = JSON.parse(json);
     										console.log(json);
 										});
-									      console.log(e.params.data.id); });
+									       });
 				$("#that").on("select2:select", function (e) { console.log(e.params.data.id); });
 				$("#this").on("select2:select", function (e) { $a = e.params.data.id; document.getElementById('prod').innerHTML = $a*$b; });
 				$("#that").on("select2:select", function (e) { $b = e.params.data.id; document.getElementById('prod').innerHTML = $a*$b; });
