@@ -13,9 +13,9 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $(".js-example-basic-single").select2();
+  $("table").select2();
 });
-$(".js-example-basic-single").on('select2:select', function (e) {
+$("table").on('select2:select', function (e) {
     var data = e.params.data;
     document.getElementById('selecao').innerHTML = data;
 });
@@ -24,7 +24,7 @@ $(".js-example-basic-single").on('select2:select', function (e) {
 </head>
 <body>
 
-<select class="js-example-basic-single">
+<select class="table">
   <option value="AL">Alabama</option>
     ...
   <option value="WY">Wyoming</option>
