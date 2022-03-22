@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <div id="selecao">
-	    previous
-	</div>
-<script src=
-"
-https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
-">
-      </script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $(".table").select2();
-});
-$(".table").on("change", function (e) {
-    var data = e.params.data;
-    console.log(data);
-    document.getElementById('selecao').innerHTML = data;
-});
-</script>
-
-</head>
-<body>
-
-<select class="table">
-  <option value="AL">Alabama</option>
-    ...
-  <option value="WY">Wyoming</option>
-</select>
-</body>
+	<head>
+		<div id="selecao">previous</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			  $(".table").select2();
+			});
+			$(".table").on("change", function (e) {
+			    var data = e.params.data;
+			    console.log(data);
+			    document.getElementById('selecao').innerHTML = data;
+			});
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(".table").on("change", function (e) {
+			    var data = e.params.data;
+			    console.log(data);
+			    document.getElementById('selecao').innerHTML = data;
+			});
+			$(".table").select2().on("change", function (e) {
+			    var data = e.params.data;
+			    console.log(data);
+			    document.getElementById('selecao').innerHTML = data;
+			});
+		</script>
+		<select class="table">
+		  <option value="AL">Alabama</option>
+		    ...
+		  <option value="WY">Wyoming</option>
+		</select>
+	</body>
 </html>
