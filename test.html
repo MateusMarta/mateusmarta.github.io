@@ -9,7 +9,7 @@
 			$(document).ready(function() {
 			  $(".table").select2();
 			});
-			$("#this").on("change", function (e) {
+			$("#this").on('select2:select', function (e) {
 			    var data = e.params.data;
 			    console.log(data);
 			    document.getElementById('selecao').innerHTML = data;
@@ -18,12 +18,12 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			$("#this").on("change", function (e) {
+			$("#this").on('select2:select', function (e) {
 			    var data = e.params.data;
 			    console.log(data);
 			    document.getElementById('selecao').innerHTML = data;
 			});
-			$("#this").select2().on("change", function (e) {
+			$("#this").select2().on('select2:select', function (e) {
 			    var data = e.params.data;
 			    console.log(data);
 			    document.getElementById('selecao').innerHTML = data;
