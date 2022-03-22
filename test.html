@@ -9,10 +9,7 @@
 			$(document).ready(function() {
 				var $eventSelect = $(".table");
 				$eventSelect.select2();
-				$eventSelect.on("select2:open", function (e) { console.log(e); });
-				$eventSelect.on("select2:close", function (e) { console.log(e); });
-				$eventSelect.on("select2:select", function (e) { console.log(e); });
-				$eventSelect.on("select2:unselect", function (e) { console.log(e); });
+				$eventSelect.on("select2:select", function (e.params.data) { console.log(e); });
 			});
 		</script>
 	</head>
