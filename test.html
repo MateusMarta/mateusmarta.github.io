@@ -45,7 +45,7 @@
 										console.log("sigma_b", $sigma_b);
 										var p1 = prob($mu_a, $sigma_a, $mu_b, $sigma_b)
 										document.getElementById('j1').innerHTML = "Probabilidade do jogador 1 ganhar: " + p1*100 + "%";
-										document.getElementById('j2').innerHTML = "Probabilidade do jogador 1 ganhar: " + (1-p1)*100 + "%";
+										document.getElementById('j2').innerHTML = "Probabilidade do jogador 2 ganhar: " + (1-p1)*100 + "%";
 										});
 									       });
 				$("#that").on("select2:select", function (e) {$.getJSON("json/geral.json", function(json) {
@@ -58,7 +58,7 @@
 										console.log("mu_b", $mu_b);
 										console.log("sigma_b", $sigma_b);
 										var p2 = prob($mu_a, $sigma_a, $mu_b, $sigma_b)
-										document.getElementById('j2').innerHTML = "Probabilidade do jogador 1 ganhar: " + p2*100 + "%";
+										document.getElementById('j2').innerHTML = "Probabilidade do jogador 2 ganhar: " + p2*100 + "%";
 										document.getElementById('j1').innerHTML = "Probabilidade do jogador 1 ganhar: " + (1-p2)*100 + "%";
 										});
 									       });
