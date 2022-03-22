@@ -14,7 +14,9 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 $(document).ready(function() {
   $(".js-example-basic-single").select2();
 });
-document.getElementById('selecao').innerHTML = $(".js-example-basic-single").select2(':selected');
+$(".js-example-basic-single").on('select2:select', function (e) {
+  document.getElementById('selecao').innerHTML = $(".js-example-basic-single").select2(':selected');
+});
 </script>
 
 </head>
