@@ -10,8 +10,8 @@
 			$(document).ready(function() {
 				var $eventSelect = $(".table");
 				$eventSelect.select2();
-				$("#this").on("select2:select", function (e) { document.getElementById('selecao').innerHTML = e.params.data.id; });
-				$("#that").on("select2:select", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
+				$("#this").on("change", function (e) { document.getElementById('selecao').innerHTML = e.params.data.id; });
+				$("#that").on("change", function (e) { document.getElementById('seleca').innerHTML = e.params.data.id; });
 			});
 		</script>
 	</head>
