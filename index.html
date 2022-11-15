@@ -93,7 +93,26 @@ cursor:pointer;  appearance: none;
         <h2>
 	Simulador de resultados
 	</h2>
-	Disponível brevemente...
+	<form>
+        Rating Jogador 1<br>
+        <input id="r_a" type="text" name="r_a"><br>
+		
+		Incerteza Jogador 1<br>
+		<input id="i_a" type="text" name="i_a"><br>
+		
+        Rating Jogador 2<br>
+        <input id="r_b" type="text" name="r_b"><br>
+		
+		Incerteza Jogador 2<br>
+		<input id="i_b" type="text" name="i_b"><br>
+		
+		Primeiro a ganhar N jogos<br>
+		<input id="k" type="text" name="k"><br>
+		
+		<br>
+      	<input type="button" value="Calcular" onclick="prob_ganhar();" /><p/>
+        Probabilidade do Jogador 1 ganhar: <span id="ans"></span>
+    	</form>
         <p></p>
 	</body>
 	
@@ -126,4 +145,32 @@ cursor:pointer;  appearance: none;
 		} );
 	
 	</script>
+		
+	<script>
+  	function factorial(num)
+	{
+		var rval=1;
+		for (var i = 2; i <= num; i++)
+			rval = rval * i;
+		return rval;
+	}
+	function combs(a, b){
+		return factorial(a)/(factorial(b)*factorial(a-b));
+	}
+	function prob_ganhar() {
+          var r_a = document.getElementById('r_a').value;
+          var i_a = document.getElementById('i_a').value;
+		  var r_b = document.getElementById('r_b').value;
+          var i_b = document.getElementById('i_b').value;
+		  var k = document.getElementById('k').value;
+		  var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
+		  var p_perder = 0;
+		  for(var r=0; r<k; r++){
+			var prob = (1-p)**k * p**r * combs(parseFloat(k)+parseFloat(r)-1, r);
+			p_perder = p_perder + prob;
+		  }
+          document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
+          }
+	
+  </script>
 </html>
