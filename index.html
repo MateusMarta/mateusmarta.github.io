@@ -77,6 +77,8 @@ cursor:pointer;  appearance: none;
 		<th>Rating</th>
 		<th>Incerteza</th>
 		<th>Licença FPB</th>
+		<th>Simular 1</th>
+		<th>Simular 2</th>
 		</tr>
 	</thead>
 	</table>
@@ -134,15 +136,26 @@ cursor:pointer;  appearance: none;
 					{
 						targets: -1,
 						data: null,
-						defaultContent: '<button>Click!</button>',
+						defaultContent: '<button class="j2">Click!</button>',
+					},
+					{
+						targets: -2,
+						data: null,
+						defaultContent: '<button class="j1">Click!</button>',
 					},
 				],
 			} );
 		} );
 		
 		$('#table1 tbody').on('click', 'button', function () {
+			if (this.className == "j1"){
 			var data = table.row($(this).parents('tr')).data();
-			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];     
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];    
+			}
+			else {
+			var data = table.row($(this).parents('tr')).data();
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[3];    
+			} 
 		});
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
