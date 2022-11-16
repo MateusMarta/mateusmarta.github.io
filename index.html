@@ -165,7 +165,7 @@ cursor:pointer;  appearance: none;
 	<script>
 		$(document).ready(function() {
 			table = $('#table1').DataTable( {
-				"ajax": 'json/'+fa+'.json',
+				"ajax": 'json/geral.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
 				columnDefs: [
@@ -193,8 +193,6 @@ cursor:pointer;  appearance: none;
 			document.getElementById('jogador_1').innerHTML = "Rating " + data[3];    
 			} 
 		});
-		
-		changeparagraph('geral');
 	
 	</script>
 		
