@@ -133,18 +133,18 @@ cursor:pointer;  appearance: none;
 				"lengthMenu": [ 10, 25, 50, 100 ],
 				columnDefs: [
 					{
-						targets: -1,
-						data: 'asd',
+						targets: [-1, -2],
+						data: null,
 						defaultContent: '<button>Click!</button>',
 					},
 				],
 			} );
 		} );
 		
-		//$('#table1 tbody').on('click', 'button', function () {
-		//	var data = table.row($(this).parents('tr')).data();
-		//	document.getElementById('jogador_1').innerHTML = "Rating " + data[2];     
-		//});
+		$('#table1 tbody').on('click', 'button', function () {
+			var data = table.row($(this).parents('tr')).data();
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];     
+		});
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 	}
