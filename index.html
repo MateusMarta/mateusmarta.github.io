@@ -150,6 +150,13 @@ cursor:pointer;  appearance: none;
 	</script>
 
 	<script>
+		$(document).ready(function() {
+			table = $('#table1').DataTable( {
+				"ajax": 'json/geral.json',
+				"deferRender": true,
+				"lengthMenu": [ 10, 25, 50, 100 ]
+			} );
+		} );
 		changeparagraph('geral');
 	
 	</script>
