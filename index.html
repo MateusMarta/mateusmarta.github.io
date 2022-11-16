@@ -58,15 +58,15 @@ cursor:pointer;  appearance: none;
 					<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 				</a></p>
 		<p></p>
-	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('geral');"/>
+	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('geral',1);"/>
 	<label class="Button" for="Button1">Geral</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT');"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT',1);"/>
 	<label class="Button" for="Button2">PoolPT</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3" onclick="changeparagraph('pool');"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3" onclick="changeparagraph('pool',1);"/>
 	<label class="Button" for="Button3">Pool</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4" onclick="changeparagraph('carambola');"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button4" value="4" onclick="changeparagraph('carambola',1);"/>
 	<label class="Button" for="Button4">Carambola</label>
-	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5" onclick="changeparagraph('snooker');"/>
+	<input type="radio" name="Button" class="ButtonState" id="Button5" value="5" onclick="changeparagraph('snooker',1);"/>
 	<label class="Button" for="Button5">Snooker</label>
 	<p></p>
 	<table id="table1" class="display" style="width:100%">
@@ -125,39 +125,11 @@ cursor:pointer;  appearance: none;
 	
 		
 	<script>
-	$(document).ready(function() {
-			table = $('#table1').DataTable( {
-				"ajax": 'json/geral.json',
-				"deferRender": true,
-				"lengthMenu": [ 10, 25, 50, 100 ],
-				columnDefs: [
-					{
-						targets: -1,
-						data: null,
-						defaultContent: '<button class="j2">Click!</button>',
-					},
-					{
-						targets: -2,
-						data: null,
-						defaultContent: '<button class="j1">Click!</button>',
-					},
-				],
-			} );
-		} );
-	$('#table1 tbody').on('click', 'button', function () {
-			if (this.className == "j1"){
-			var data = table.row($(this).parents('tr')).data();
-			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];    
-			}
-			else {
-			var data = table.row($(this).parents('tr')).data();
-			document.getElementById('jogador_1').innerHTML = "Rating " + data[3];    
-			} 
-		});
-
-	function changeparagraph(fa) {
+	function changeparagraph(fa, b) {
 		$(document).ready(function() {
+			if (b==1){
 			table.destroy();
+			}
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
@@ -190,6 +162,7 @@ cursor:pointer;  appearance: none;
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 	};
+	changeparagraph('geral', 0);
 
 	</script>
 		
