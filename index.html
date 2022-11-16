@@ -100,7 +100,7 @@ cursor:pointer;  appearance: none;
 		
       	Probabilidade do Jogador 1 ganhar: <span id="ans"></span>
 	<br>
-	<input type="button" value="Calcular" onclick="prob_ganhar(r_a, i_a, r_b, i_b);" /><p/>
+	<input type="button" value="Calcular" onclick="prob_ganhar();" /><p/>
     	</form>
         <p></p>
 	</body>
@@ -112,6 +112,10 @@ cursor:pointer;  appearance: none;
 		
 	<script>
 	function changeparagraph(fa, b) {
+		var r_a = 1;
+		var r_b = 1;
+		var i_a = 1;
+		var i_b = 1;
 		$(document).ready(function() {
 			if (b==1){
 			table.destroy();
@@ -139,7 +143,7 @@ cursor:pointer;  appearance: none;
 			if (this.className == "j1"){
 			var data = table.row($(this).parents('tr')).data();
 			var r_a = data[2];
-			var i_a = data[3];   
+			var i_a = data[3];
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
@@ -155,9 +159,7 @@ cursor:pointer;  appearance: none;
 	changeparagraph('geral',1);
 	});
 
-	</script>
-		
-	<script>
+
   	function factorial(num)
 	{
 		var rval=1;
@@ -168,7 +170,7 @@ cursor:pointer;  appearance: none;
 	function combs(a, b){
 		return factorial(a)/(factorial(b)*factorial(a-b));
 	}
-	function prob_ganhar(r_a, i_a, r_b, i_b) {
+	function prob_ganhar() {
 		  var k = document.getElementById('k').value;
 		  var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
 		  var p_perder = 0;
