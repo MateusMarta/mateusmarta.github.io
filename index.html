@@ -164,7 +164,7 @@ cursor:pointer;  appearance: none;
 
 	<script>
 		$(document).ready(function() {
-			table = $('#table1').DataTable( {
+			var table = $('#table1').DataTable( {
 				"ajax": 'json/geral.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
