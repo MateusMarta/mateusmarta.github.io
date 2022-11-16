@@ -127,7 +127,7 @@ cursor:pointer;  appearance: none;
 	function changeparagraph(fa) {
 		$(document).ready(function() {
 			table.destroy();
-			var table = $('#table1').DataTable( {
+			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
