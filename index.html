@@ -79,12 +79,16 @@ cursor:pointer;  appearance: none;
 		<th>Rating</th>
 		<th>Incerteza</th>
 		<th>Licença FPB</th>
+		<th>Jogador 1</th>
 		</tr>
 	</thead>
 	</table>
         <p></p>
 	<h2>
 	<div id="modalidade">
+	Estatísticas geral
+	</div>
+	<div id="jogador_1">
 	Estatísticas geral
 	</div>
 	</h2>
@@ -128,9 +132,22 @@ cursor:pointer;  appearance: none;
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
-				"lengthMenu": [ 10, 25, 50, 100 ]
+				"lengthMenu": [ 10, 25, 50, 100 ],
+				columnDefs: [
+					{
+						targets: -1,
+						data: null,
+						defaultContent: '<button>Click!</button>',
+					},
+				],
 			} );
 		} );
+		
+		$('#table1 tbody').on('click', 'button', function () {
+			var data = table.row($(this).parents('tr')).data();
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];     
+		});
+		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 	}
 	</script>
