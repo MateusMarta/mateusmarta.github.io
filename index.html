@@ -142,13 +142,13 @@ cursor:pointer;  appearance: none;
 		$('#table1 tbody').on('click', 'button', function () {
 			if (this.className == "j1"){
 			var data = table.row($(this).parents('tr')).data();
-			var r_a = data[2];
-			var i_a = data[3];
+			r_a = data[2];
+			i_a = data[3];
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
-			var r_b = data[2];
-			var i_b = data[3];    
+			r_b = data[2];
+			i_b = data[3];    
 			} 
 		});
 		
