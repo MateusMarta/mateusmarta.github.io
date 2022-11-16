@@ -182,6 +182,16 @@ cursor:pointer;  appearance: none;
 				],
 			} );
 		} );
+		$('#table1 tbody').on('click', 'button', function () {
+			if (this.className == "j1"){
+			var data = table.row($(this).parents('tr')).data();
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];    
+			}
+			else {
+			var data = table.row($(this).parents('tr')).data();
+			document.getElementById('jogador_1').innerHTML = "Rating " + data[3];    
+			} 
+		});
 	
 	</script>
 		
