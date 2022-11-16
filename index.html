@@ -87,9 +87,6 @@ cursor:pointer;  appearance: none;
 	<div id="modalidade">
 	Estatísticas geral
 	</div>
-	<div id="jogador_1">
-	Estatísticas geral
-	</div>
 	</h2>
 	Disponível brevemente...
         <p></p>
@@ -97,24 +94,13 @@ cursor:pointer;  appearance: none;
 	Simulador de resultados
 	</h2>
 	<form>
-        Rating Jogador 1<br>
-        <input id="r_a" type="text" name="r_a"><br>
-		
-		Incerteza Jogador 1<br>
-		<input id="i_a" type="text" name="i_a"><br>
-		
-        Rating Jogador 2<br>
-        <input id="r_b" type="text" name="r_b"><br>
-		
-		Incerteza Jogador 2<br>
-		<input id="i_b" type="text" name="i_b"><br>
 		
 		Primeiro a ganhar N jogos<br>
 		<input id="k" type="text" name="k"><br>
 		
       	Probabilidade do Jogador 1 ganhar: <span id="ans"></span>
 	<br>
-	<input type="button" value="Calcular" onclick="prob_ganhar();" /><p/>
+	<input type="button" value="Calcular" onclick="prob_ganhar(r_a, i_a, r_b, i_b);" /><p/>
     	</form>
         <p></p>
 	</body>
@@ -152,11 +138,13 @@ cursor:pointer;  appearance: none;
 		$('#table1 tbody').on('click', 'button', function () {
 			if (this.className == "j1"){
 			var data = table.row($(this).parents('tr')).data();
-			document.getElementById('jogador_1').innerHTML = "Rating " + data[2];    
+			var r_a = data[2];
+			var i_a = data[3];   
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
-			document.getElementById('jogador_1').innerHTML = "Rating " + data[3];    
+			var r_b = data[2];
+			var i_b = data[3];    
 			} 
 		});
 		
@@ -180,11 +168,7 @@ cursor:pointer;  appearance: none;
 	function combs(a, b){
 		return factorial(a)/(factorial(b)*factorial(a-b));
 	}
-	function prob_ganhar() {
-          var r_a = document.getElementById('r_a').value;
-          var i_a = document.getElementById('i_a').value;
-		  var r_b = document.getElementById('r_b').value;
-          var i_b = document.getElementById('i_b').value;
+	function prob_ganhar(r_a, i_a, r_b, i_b) {
 		  var k = document.getElementById('k').value;
 		  var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
 		  var p_perder = 0;
