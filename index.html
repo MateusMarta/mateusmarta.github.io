@@ -130,13 +130,13 @@ cursor:pointer;  appearance: none;
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
-				//columnDefs: [
-				//	{
-				//		targets: -1,
-				//		data: null,
-				//		defaultContent: '<button>Click!</button>',
-				//	},
-				//],
+				columnDefs: [
+					{
+						targets: -1,
+						data: null,
+						defaultContent: '<button>Click!</button>',
+					},
+				],
 			} );
 		} );
 		
