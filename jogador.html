@@ -29,9 +29,9 @@
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
 		console.log(myParam);
-		var linha = [];
 		fetch("json/geral.json")
   		.then(response => response.json())
-  		.then(json => document.getElementById('nome').innerHTML = "<b>Nome: </b>" + json[myParam]);
+  		.then(json => var linha = json[myParam]);
+		console.log(linha);
 	</script>
 </html>
