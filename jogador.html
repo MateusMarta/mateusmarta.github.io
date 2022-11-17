@@ -39,38 +39,5 @@
 			  document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
 			}
 	      	)
-		fetch("json/et.json").then(
-			function(u){ return u.json();}
-	      		).then(
-			function(json){
-		  	  var xValues = [];
-			  var yValues = [];
-			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
-			  for(let i = 0; i<10; i++){yValues.push(json["histo"][i]);}
-			  document.getElementById("chart-container").innerHTML = '&nbsp;';
-			  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
-			  new Chart("myChart", {
-		type: "bar",
-					data: {
-						labels: xValues,
-						datasets: [{
-						data: yValues
-						}]
-					},
-					options: {
-						scales: {
-					y: {
-					    beginAtZero: true,
-
-					}
-				    },
-			plugins: {
-							legend: false,
-							title: {display: true, text: "Distribuição de ratings" }
-						}
-					}
-					});
-			}
-	      	)
 	</script>
 </html>
