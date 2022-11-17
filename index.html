@@ -151,13 +151,13 @@ cursor:pointer;  appearance: none;
 			var data = table.row($(this).parents('tr')).data();
 			r_a = data[2];
 			i_a = data[3];
-			document.getElementById('jogador_1').innerHTML = "Jogador 1: " + data[2];
+			document.getElementById('jogador_1').innerHTML = "Jogador 1: " + data[1];
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
 			r_b = data[2];
 			i_b = data[3];   
-			document.getElementById('jogador_2').innerHTML = "Jogador 2: " + data[2];
+			document.getElementById('jogador_2').innerHTML = "Jogador 2: " + data[1];
 			} 
 		});
 		
