@@ -223,10 +223,8 @@ cursor:pointer;  appearance: none;
 		barColors.push("red");
 		p_perder = p_perder + prob;
 	}
-          document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
 	  document.getElementById("chart-container").innerHTML = '&nbsp;';
 	  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
-	  var ctx = document.getElementById("myChart").getContext("2d");
 	  new Chart("myChart", {
 		type: "bar",
 		data: {
@@ -250,7 +248,6 @@ cursor:pointer;  appearance: none;
 		});
 	  document.getElementById("chart-container-2").innerHTML = '&nbsp;';
 	  document.getElementById("chart-container-2").innerHTML = '<canvas id="myChart-2"></canvas>';
-	  var ctx = document.getElementById("myChart-2").getContext("2d");
 	  new Chart("myChart-2", {
 		type: "bar",
 		data: {
