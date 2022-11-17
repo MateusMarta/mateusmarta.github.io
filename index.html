@@ -227,9 +227,6 @@ cursor:pointer;  appearance: none;
 	  document.getElementById("chart-container").innerHTML = '&nbsp;';
 	  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
 	  var ctx = document.getElementById("myChart").getContext("2d");
-	  document.getElementById("chart-container-2").innerHTML = '&nbsp;';
-	  document.getElementById("chart-container-2").innerHTML = '<canvas id="myChart-2"></canvas>';
-	  var ctx = document.getElementById("myChart-2").getContext("2d");
 	  new Chart("myChart", {
 		type: "bar",
 		data: {
@@ -251,6 +248,9 @@ cursor:pointer;  appearance: none;
 			}
 		}
 		});
+	  document.getElementById("chart-container-2").innerHTML = '&nbsp;';
+	  document.getElementById("chart-container-2").innerHTML = '<canvas id="myChart-2"></canvas>';
+	  var ctx = document.getElementById("myChart-2").getContext("2d");
 	  new Chart("myChart-2", {
 		type: "bar",
 		data: {
