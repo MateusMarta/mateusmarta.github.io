@@ -24,6 +24,7 @@
 			<b>Licensa FPB: </b>
 			</div>
 		</div>
+	<div class="chart-container" id="chart-container"></div>
 	</body>
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
@@ -35,6 +36,37 @@
 		  	  var linha = json[myParam];
 			  document.getElementById('nome').innerHTML = linha[1];
 			  document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
+			}
+	      	)
+		fetch("json/estatistica.json").then(
+			function(u){ return u.json();}
+	      		).then(
+			function(json){
+		  	  var xValues = json["bins"];
+			  var yValues = json["histograma"];
+				document.getElementById("chart-container").innerHTML = '&nbsp;';
+				  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
+				  new Chart("myChart", {
+		type: "bar",
+					data: {
+						labels: xValues,
+						datasets: [{
+						data: yValues
+						}]
+					},
+					options: {
+						scales: {
+					y: {
+					    beginAtZero: true,
+
+					}
+				    },
+			plugins: {
+							legend: false,
+							title: {display: true, text: "Distribuição de ratings" }
+						}
+					}
+					});
 			}
 	      	)
 	</script>
