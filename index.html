@@ -104,12 +104,10 @@ cursor:pointer;  appearance: none;
 		<input id="k" type="text" name="k"><br>
 		<br>
 		<input type="button" value="Simular" onclick="prob_ganhar();" />
-		<br>
-		<br>
-      	Probabilidade do Jogador 1 ganhar: <span id="ans"></span>
     	</form>
         <p></p>
 	<div class="chart-container" id="chart-container" style="position: relative; height:30vh; width:45vw">
+	<div class="chart-container" id="chart-container-2" style="position: relative; height:30vh; width:45vw">
 	<h2>
 	<div id="modalidade">
 	Estatísticas geral
@@ -227,15 +225,39 @@ cursor:pointer;  appearance: none;
 	}
           document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
 	  document.getElementById("chart-container").innerHTML = '&nbsp;';
-		document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
-		var ctx = document.getElementById("myChart").getContext("2d");
-		new Chart("myChart", {
+	  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
+	  var ctx = document.getElementById("myChart").getContext("2d");
+	  document.getElementById("chart-container-2").innerHTML = '&nbsp;';
+	  document.getElementById("chart-container-2").innerHTML = '<canvas id="myChart-2"></canvas>';
+	  var ctx = document.getElementById("myChart-2").getContext("2d");
+	  new Chart("myChart", {
 		type: "bar",
 		data: {
 			labels: xValues,
 			datasets: [{
 			backgroundColor: barColors,
 			data: yValues
+			}]
+		},
+		options: {
+			scales: {
+                y: {
+                    beginAtZero: true,
+
+                }
+            },
+			plugins: {
+				legend: false
+			}
+		}
+		});
+	  new Chart("myChart-2", {
+		type: "bar",
+		data: {
+			labels: ["Jogador 1", "Jogador 2"],
+			datasets: [{
+			backgroundColor: ["green", "red"],
+			data: [Math.round((1-p_perder)*1000)/10, Math.round((p_perder)*1000)/10]
 			}]
 		},
 		options: {
