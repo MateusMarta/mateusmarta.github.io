@@ -111,7 +111,7 @@ cursor:pointer;  appearance: none;
 	Estatísticas poolPT
 	</div>
 	</h2>
-	Disponível brevemente...
+	<div class="chart-container-3" id="chart-container-3"></div>
         <p></p>
 	</body>
 	
@@ -162,6 +162,40 @@ cursor:pointer;  appearance: none;
 		} 
 	});
 		
+	fetch("json/ets/poolPT.json").then(
+			function(u){ return u.json();}
+	      		).then(
+			function(json){
+		  	  var xValues = [];
+			  var yValues = [];
+			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
+			  for(let i = 0; i<10; i++){yValues.push(json["histo"][i]);}
+			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
+			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
+			  new Chart("myChart-3", {
+		type: "bar",
+					data: {
+						labels: xValues,
+						datasets: [{
+						data: yValues
+						}]
+					},
+					options: {
+						scales: {
+					y: {
+					    beginAtZero: true,
+
+					}
+				    },
+			plugins: {
+							legend: false,
+							title: {display: true, text: "Distribuição de ratings (número de jogadores)" }
+						}
+					}
+					});
+			}
+	      	)
+		
 	function changeparagraph(fa) {
 		$(document).ready(function() {
 			table.destroy();
@@ -202,6 +236,40 @@ cursor:pointer;  appearance: none;
 			document.getElementById('jogador_2').innerHTML = "<b>Jogador 2: </b>" + data[1];
 			} 
 		});
+		
+		fetch("json/ets"+fa+".json").then(
+			function(u){ return u.json();}
+	      		).then(
+			function(json){
+		  	  var xValues = [];
+			  var yValues = [];
+			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
+			  for(let i = 0; i<10; i++){yValues.push(json["histo"][i]);}
+			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
+			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
+			  new Chart("myChart-3", {
+		type: "bar",
+					data: {
+						labels: xValues,
+						datasets: [{
+						data: yValues
+						}]
+					},
+					options: {
+						scales: {
+					y: {
+					    beginAtZero: true,
+
+					}
+				    },
+			plugins: {
+							legend: false,
+							title: {display: true, text: "Distribuição de ratings (número de jogadores)" }
+						}
+					}
+					});
+			}
+	      	)
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
