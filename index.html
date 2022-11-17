@@ -107,7 +107,7 @@ cursor:pointer;  appearance: none;
     	</form>
         <p></p>
 	<div class="chart-container" id="chart-container"></div>
-	<div class="chart-container-2" id="chart-container-2" style="position: relative"></div>
+	<div class="chart-container-2" id="chart-container-2"></div>
 	<h2>
 	<div id="modalidade">
 	Estatísticas geral
@@ -131,6 +131,7 @@ cursor:pointer;  appearance: none;
 		"ajax": 'json/geral.json',
 		"deferRender": true,
 		"lengthMenu": [ 10, 25, 50, 100 ],
+		scrollX: true,
 		columnDefs: [
 			{ orderable: false, targets: [-1,-2]},
 			{ sorting: false, targets: [-1,-2]},
@@ -154,6 +155,7 @@ cursor:pointer;  appearance: none;
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
+				scrollX: true,
 				columnDefs: [
 					{ orderable: false, targets: [-1,-2]},
 					{ sorting: false, targets: [-1,-2]},
