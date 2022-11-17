@@ -44,6 +44,7 @@
 	      		).then(
 			function(json){
 		  	  var xValues = json["bins"];
+			  console.log(xValues);
 			  var yValues = json["histograma"];
 				document.getElementById("chart-container").innerHTML = '&nbsp;';
 				  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
