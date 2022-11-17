@@ -31,12 +31,11 @@
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
-		let linha;
 		fetch("json/geral.json").then(
 			function(u){ return u.json();}
 	      		).then(
 			function(json){
-		  	  linha = json[myParam];
+		  	  var linha = json[myParam];
 			}
 	      	)
 		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha[1];
