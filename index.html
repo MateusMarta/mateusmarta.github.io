@@ -191,9 +191,9 @@ cursor:pointer;  appearance: none;
 			p_perder = p_perder + prob;
 		  }
           document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
-	  var xValues = ["Perder", "Ganhar"];
-	  var yValues = [Math.round((p_perder)*1000)/10, Math.round((1-p_perder)*1000)/10];
-	  var barColors = ["red", "green"];
+	  var xValues = ["Ganhar", "Perder"];
+	  var yValues = [Math.round((1-p_perder)*1000)/10, Math.round((p_perder)*1000)/10];
+	  var barColors = ["green", "red"];
 	  document.getElementById("chart-container").innerHTML = '&nbsp;';
 		document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
 		var ctx = document.getElementById("myChart").getContext("2d");
