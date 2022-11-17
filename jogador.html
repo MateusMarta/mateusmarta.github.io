@@ -28,6 +28,6 @@
 		console.log(myParam);
 		fetch("json/geral.json")
   		.then(response => response.json())
-  		.then(json => console.log(json[myParam]));
+  		.then(json => console.log(json[myParam][1]));
 	</script>
 </html>
