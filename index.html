@@ -206,17 +206,26 @@ cursor:pointer;  appearance: none;
 		return factorial(a)/(factorial(b)*factorial(a-b));
 	}
 	function prob_ganhar() {
-		  var k = document.getElementById('k').value;
-		  var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
-		  var p_perder = 0;
-		  for(var r=0; r<k; r++){
-			var prob = (1-p)**k * p**r * combs(parseFloat(k)+parseFloat(r)-1, r);
-			p_perder = p_perder + prob;
-		  }
+	var xValues = [];
+	var yValues = [];
+	var barColors = [];
+	var k = document.getElementById('k').value;
+	var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
+	var p_perder = 0;
+	for(var r=0; r<k; r++){
+		var prob = (p)**k * (1-p)**r * combs(parseFloat(k)+parseFloat(r)-1, r);
+		xValues.push(k+"-"+r);
+		yValues.push(Math.round((prob)*1000)/10);
+		barColors.push("green");
+	}
+	for(var r=k-1; r>-1; r--){
+		var prob = (1-p)**k * p**r * combs(parseFloat(k)+parseFloat(r)-1, r);
+		xValues.push(r+"-"+k);
+		yValues.push(Math.round((prob)*1000)/10);
+		barColors.push("red");
+		p_perder = p_perder + prob;
+	}
           document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
-	  var xValues = ["Ganhar", "Perder"];
-	  var yValues = [Math.round((1-p_perder)*1000)/10, Math.round((p_perder)*1000)/10];
-	  var barColors = ["green", "red"];
 	  document.getElementById("chart-container").innerHTML = '&nbsp;';
 		document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
 		var ctx = document.getElementById("myChart").getContext("2d");
