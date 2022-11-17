@@ -86,15 +86,15 @@ cursor:pointer;  appearance: none;
         <h2>
 	Simulador de resultados
 	</h2>
-	<h2>
-	<div id="modalidade">
-	Estatísticas geral
-	</div>
-	</h2>
-	Disponível brevemente...
-        <p></p>
 	<form>
-		
+		<div id="jogador_1">
+		Jogador 1:
+		</div>
+		<br>
+		<div id="jogador_1">
+		Jogador 2:
+		</div>
+		<br>
 		Primeiro a ganhar N jogos<br>
 		<input id="k" type="text" name="k"><br>
 		
@@ -102,6 +102,13 @@ cursor:pointer;  appearance: none;
 	<br>
 	<input type="button" value="Calcular" onclick="prob_ganhar();" /><p/>
     	</form>
+        <p></p>
+	<h2>
+	<div id="modalidade">
+	Estatísticas geral
+	</div>
+	</h2>
+	Disponível brevemente...
         <p></p>
 	</body>
 	
@@ -144,11 +151,13 @@ cursor:pointer;  appearance: none;
 			var data = table.row($(this).parents('tr')).data();
 			r_a = data[2];
 			i_a = data[3];
+			document.getElementById('jogador_1').innerHTML = "Jogador 1: " + data[2];
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
 			r_b = data[2];
-			i_b = data[3];    
+			i_b = data[3];   
+			document.getElementById('jogador_2').innerHTML = "Jogador 2: " + data[2];
 			} 
 		});
 		
