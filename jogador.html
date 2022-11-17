@@ -32,9 +32,13 @@
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
 		let linha;
-		fetch("json/geral.json")
-  		.then(response => response.json())
-  		.then(json => linha = json[myParam]);
+		fetch("json/geral.json").then(
+			function(u){ return u.json();}
+	      		).then(
+			function(json){
+		  	  linha = json[myParam];
+			}
+	      	)
 		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha[1];
 		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
 	</script>
