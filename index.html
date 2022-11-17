@@ -59,8 +59,6 @@ cursor:pointer;  appearance: none;
 					<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 				</a></p>
 		<p></p>
-	<input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1" onclick="changeparagraph('geral');"/>
-	<label class="Button" for="Button1">Geral</label>
 	<input type="radio" name="Button" class="ButtonState" id="Button2" value="2" onclick="changeparagraph('poolPT');"/>
 	<label class="Button" for="Button2">PoolPT</label>
 	<input type="radio" name="Button" class="ButtonState" id="Button3" value="3" onclick="changeparagraph('pool');"/>
@@ -89,7 +87,7 @@ cursor:pointer;  appearance: none;
 	</h2>
 	<form>
 		<div id="modalidade2">
-		<b>Modalidade: </b>Geral
+		<b>Modalidade: </b>poolPT
 		</div>
 		<br>
 		<div id="jogador_1">
@@ -110,7 +108,7 @@ cursor:pointer;  appearance: none;
 	<div class="chart-container-2" id="chart-container-2"></div>
 	<h2>
 	<div id="modalidade">
-	Estatísticas geral
+	Estatísticas poolPT
 	</div>
 	</h2>
 	Disponível brevemente...
@@ -128,7 +126,7 @@ cursor:pointer;  appearance: none;
 	var i_a = 1;
 	var i_b = 1;
 	var table = $('#table1').DataTable( {
-		"ajax": 'json/geral.json',
+		"ajax": 'json/poolPT.json',
 		"deferRender": true,
 		"lengthMenu": [ 10, 25, 50, 100 ],
 		scrollX: true,
