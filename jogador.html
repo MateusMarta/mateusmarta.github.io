@@ -31,13 +31,11 @@
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
-		var linha = [];
+		var linha = [1];
 		fetch("json/geral.json")
   		.then(response => response.json())
   		.then(json => linha.push(json[myParam]));
-		var nome_ = linha[0];
-		var licenca_ = linha;
-		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + nome_;
-		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ licenca_ +'">'+ licenca_ +'</a>';
+		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha;
+		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha +'">'+ linha +'</a>';
 	</script>
 </html>
