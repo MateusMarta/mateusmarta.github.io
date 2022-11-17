@@ -17,11 +17,9 @@
 				<i style="color:black"><small>Rankings de bilhar em Portugal</small></i>
 			</a></p>
 			<h2>
-			Estatísticas do Jogador
-			</h2>
 			<div id="nome">
-			<b>Nome: </b>
 			</div>
+			</h2>
 			<div id="licenca">
 			<b>Licensa FPB: </b>
 			</div>
@@ -35,7 +33,7 @@
 	      		).then(
 			function(json){
 		  	  var linha = json[myParam];
-			  document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha[1];
+			  document.getElementById('nome').innerHTML = linha[1];
 			  document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
 			}
 	      	)
