@@ -30,8 +30,9 @@
 		const myParam = urlParams.get('fpb');
 		console.log(myParam);
 		fetch("json/geral.json")
+		var linha = [];
   		.then(response => response.json())
-  		.then(json => linha = json[myParam]);
+  		.then(json => linha.push(json[myParam]));
 		console.log(linha);
 	</script>
 </html>
