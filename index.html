@@ -180,18 +180,18 @@ cursor:pointer;  appearance: none;
 			var data = table.row($(this).parents('tr')).data();
 			r_a = data[2];
 			i_a = data[5];
-			document.getElementById('jogador_1').innerHTML = "Jogador 1: " + data[1];
+			document.getElementById('jogador_1').innerHTML = "<b>Jogador 1: </b>" + data[1];
 			}
 			else {
 			var data = table.row($(this).parents('tr')).data();
 			r_b = data[2];
 			i_b = data[5];   
-			document.getElementById('jogador_2').innerHTML = "Jogador 2: " + data[1];
+			document.getElementById('jogador_2').innerHTML = "<b>Jogador 2: </b>" + data[1];
 			} 
 		});
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
-		document.getElementById('modalidade2').innerHTML = "Modalidade: " + fa;
+		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
 	};
 
   	changeparagraph('geral');
