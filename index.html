@@ -125,25 +125,23 @@ cursor:pointer;  appearance: none;
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
-	$(document).ready(function() {
-			var table = $('#table1').DataTable( {
-				"ajax": 'json/geral.json',
-				"deferRender": true,
-				"lengthMenu": [ 10, 25, 50, 100 ],
-				columnDefs: [
-					{
-						targets: -1,
-						data: null,
-						defaultContent: '<button class="j2">Click!</button>',
-					},
-					{
-						targets: -2,
-						data: null,
-						defaultContent: '<button class="j1">Click!</button>',
-					},
-				],
-			} );
-		} );
+	var table = $('#table1').DataTable( {
+		"ajax": 'json/geral.json',
+		"deferRender": true,
+		"lengthMenu": [ 10, 25, 50, 100 ],
+		columnDefs: [
+			{
+				targets: -1,
+				data: null,
+				defaultContent: '<button class="j2">Click!</button>',
+			},
+			{
+				targets: -2,
+				data: null,
+				defaultContent: '<button class="j1">Click!</button>',
+			},
+		],
+	} );
 		
 	function changeparagraph(fa) {
 		$(document).ready(function() {
