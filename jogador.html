@@ -36,7 +36,7 @@
   		.then(response => response.json())
   		.then(json => linha.push(json[myParam]));
 		var nome_ = linha;
-		var lincenca_ = linha;
+		var licenca_ = linha;
 		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + nome_;
 		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ licenca_ +'">'+ licenca_ +'</a>';
 	</script>
