@@ -34,7 +34,7 @@
 		var linha = [];
 		fetch("json/geral.json")
   		.then(response => response.json())
-  		.then(json => linha = json[myParam]);
+  		.then(json => linha.push(json[myParam]);
 		console.log(linha);
 		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha[0,1];
 		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0,0] +'">'+ linha[0,0] +'</a>';
