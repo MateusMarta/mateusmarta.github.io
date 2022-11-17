@@ -9,6 +9,7 @@
 		<p></p>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<body style="margin-bottom:1vh;">
 		<style>
 		.ButtonState{display:none}
@@ -104,6 +105,7 @@ cursor:pointer;  appearance: none;
 	<input type="button" value="Calcular" onclick="prob_ganhar();" /><p/>
     	</form>
         <p></p>
+	<div class="chart-container" id="chart-container" style="position: relative; height:30vh; width:45vw">
 	<h2>
 	<div id="modalidade">
 	Estatísticas geral
@@ -189,6 +191,33 @@ cursor:pointer;  appearance: none;
 			p_perder = p_perder + prob;
 		  }
           document.getElementById('ans').innerHTML = Math.round((1-p_perder)*1000)/10 + "%";
+	  var xValues = ["Perder", "Ganhar"];
+	  var yValues = [Math.round((p_perder)*1000)/10, Math.round((1-p_perder)*1000)/10];
+	  var barColors = ["red", "green"];
+	  document.getElementById("chart-container").innerHTML = '&nbsp;';
+		document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
+		var ctx = document.getElementById("myChart").getContext("2d");
+		new Chart("myChart", {
+		type: "bar",
+		data: {
+			labels: xValues,
+			datasets: [{
+			backgroundColor: barColors,
+			data: yValues
+			}]
+		},
+		options: {
+			scales: {
+                y: {
+                    beginAtZero: true,
+
+                }
+            },
+			plugins: {
+				legend: false
+			}
+		}
+		});
           }
 	
   </script>
