@@ -20,13 +20,18 @@
 			Estatísticas do Jogador
 			</h2>
 			Disponível brevemente...
+			<div id="nome">
+			<b>Nome: </b>
+			</div>
 		</div>
 	</body>
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
 		console.log(myParam);
-		var linha = json.Parse("json/geral.json")[myParam];		
-		console.log(linha);
+		var linha = [];
+		fetch("json/geral.json")
+  		.then(response => response.json())
+  		.then(json => document.getElementById('nome').innerHTML = "<b>Nome: </b>" + json[myParam]);
 	</script>
 </html>
