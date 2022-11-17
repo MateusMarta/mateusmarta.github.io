@@ -35,7 +35,9 @@
 		fetch("json/geral.json")
   		.then(response => response.json())
   		.then(json => linha.push(json[myParam]));
-		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + linha[0];
-		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
+		var nome_ = linha[0][1];
+		var lincenca_ = linha[0][0];
+		document.getElementById('nome').innerHTML = "<b>Nome: </b>" + nome_;
+		document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ licenca_ +'">'+ licenca_ +'</a>';
 	</script>
 </html>
