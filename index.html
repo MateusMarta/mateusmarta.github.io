@@ -88,6 +88,9 @@ cursor:pointer;  appearance: none;
 	Simulador de resultados
 	</h2>
 	<form>
+		<div id="modalidade2">
+		Modalidade: Geral
+		</div>
 		<div id="jogador_1">
 		Jogador 1:
 		</div>
@@ -185,6 +188,7 @@ cursor:pointer;  appearance: none;
 		});
 		
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
+		document.getElementById('modalidade2').innerHTML = "Modalidade: " + fa;
 	};
 
   	changeparagraph('geral');
