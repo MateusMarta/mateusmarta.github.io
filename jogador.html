@@ -39,7 +39,7 @@
 			  document.getElementById('licenca').innerHTML = "<b>Licensa FPB: </b>" + '<a href="https://portalbilhar.pt/Publico/Publico_Atleta.aspx?Atl='+ linha[0] +'">'+ linha[0] +'</a>';
 			}
 	      	)
-		fetch("json/estatistica.json").then(
+		fetch("json/et.json").then(
 			function(u){ return u.json();}
 	      		).then(
 			function(json){
