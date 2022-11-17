@@ -46,6 +46,8 @@
 		  	  var xValues = [];
 			  var yValues = [];
 			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
+			  console.log(xValues);
+			  console.log(json["histograma"]);
 			  for(let i = 0; i<10; i++){yValues.push(json["histograma"][i]);}
 			  document.getElementById("chart-container").innerHTML = '&nbsp;';
 			  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
