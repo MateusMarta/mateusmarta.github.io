@@ -29,8 +29,8 @@
 		const urlParams = new URLSearchParams(window.location.search);
 		const myParam = urlParams.get('fpb');
 		console.log(myParam);
-		fetch("json/geral.json")
 		var linha = [];
+		fetch("json/geral.json")
   		.then(response => response.json())
   		.then(json => linha.push(json[myParam]));
 		console.log(linha);
