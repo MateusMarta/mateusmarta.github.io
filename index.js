@@ -96,7 +96,9 @@ var r_a = 1;
 	}
 	function prob_ganhar() {
 	var k = document.getElementById('k').value;
-	console.log(k);
+	if (k==""){document.getElementById("aviso").innerHTML = '<i>Introduzir valor na caixa de texto acima</i>';}
+	else {
+	document.getElementById("aviso").innerHTML = '';
 	var xValues = [];
 	var yValues = [];
 	var barColors = [];
@@ -162,5 +164,5 @@ var r_a = 1;
 				title: {display: true, text: "Probabilidade total de ganhar (%)" }
 			}
 		}
-		});
+	});}
           }
