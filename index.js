@@ -1,7 +1,8 @@
 var r_a = 1;
-	var r_b = 1;
-	var i_a = 1;
-	var i_b = 1;
+	var r_a = -50;
+	var i_a = -50;
+	var r_b = -50;
+	var i_b = -50;
 	var table = $('#table1').DataTable();
 	function changeparagraph(fa) {
 		$(document).ready(function() {
@@ -96,7 +97,15 @@ var r_a = 1;
 	}
 	function prob_ganhar() {
 	var k = document.getElementById('k').value;
-	if (k==""){document.getElementById("aviso").innerHTML = '<i>Introduzir valor na caixa de texto acima</i>';}
+	if (r_a==-5 || i_a==-5){
+		document.getElementById("aviso").innerHTML = '<i>Selecionar Jogador 1 na tabela</i>';
+	}
+	else if (r_b==-5 || i_b==-5){
+		document.getElementById("aviso").innerHTML = '<i>Selecionar Jogador 2 na tabela</i>';
+	}
+	else if (k==""){
+		document.getElementById("aviso").innerHTML = '<i>Introduzir valor na caixa de texto acima</i>'
+	}
 	else {
 	document.getElementById("aviso").innerHTML = '';
 	var xValues = [];
