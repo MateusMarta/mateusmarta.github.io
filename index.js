@@ -5,8 +5,7 @@ var r_a = 1;
 	var table;
 	function changeparagraph(fa, b=0) {
 		$(document).ready(function() {
-			if (b==0){
-			table.destroy();}
+			table.destroy()
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
@@ -83,7 +82,7 @@ var r_a = 1;
 		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
 	};
 	
-	changeparagraph("poolPT", 1);
+	changeparagraph("poolPT");
 
   	function factorial(num)
 	{
