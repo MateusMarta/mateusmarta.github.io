@@ -97,10 +97,10 @@ var r_a = 1;
 	}
 	function prob_ganhar() {
 	var k = document.getElementById('k').value;
-	if (r_a==-5 || i_a==-5){
+	if (r_a==-50 || i_a==-50){
 		document.getElementById("aviso").innerHTML = '<i>Selecionar Jogador 1 na tabela</i>';
 	}
-	else if (r_b==-5 || i_b==-5){
+	else if (r_b==-50 || i_b==-50){
 		document.getElementById("aviso").innerHTML = '<i>Selecionar Jogador 2 na tabela</i>';
 	}
 	else if (k==""){
