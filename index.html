@@ -89,28 +89,7 @@
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
-	var table = $('#table1').DataTable( {
-		"ajax": 'json/poolPT.json',
-		"deferRender": true,
-		"lengthMenu": [ 10, 25, 50, 100 ],
-		scrollX: true,
-		columnDefs: [
-			{ orderable: false, targets: [3,4]},
-			{ sorting: false, targets: [3,4]},
-			{"searchable": false, "targets": [2,5] },
-			{
-				targets: 4,
-				data: null,
-				defaultContent: '<button class="j2">Selecionar</button>',
-			},
-			{
-				targets: 3,
-				data: null,
-				defaultContent: '<button class="j1">Selecionar</button>',
-			},
-		],
-	} );
-	function changeparagraph(fa, primeiro=0) {
+	function changeparagraph(fa) {
 		$(document).ready(function() {
 			if (primeiro==0){
 			table.destroy();}
@@ -190,7 +169,7 @@
 		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
 	};
 	
-	changeparagraph("poolPT");
+	changeparagraph("poolPT",1);
 
   	function factorial(num)
 	{
