@@ -50,7 +50,6 @@
 	</h2>
 	<form>
 		<div id="modalidade2">
-		<b>Modalidade: </b>poolPT
 		</div>
 		<br>
 		<div id="jogador_1">
@@ -72,7 +71,6 @@
 	<div class="chart-container-2" id="chart-container-2"></div>
 	<h2>
 	<div id="modalidade">
-	Estatísticas poolPT
 	</div>
 	</h2>
 	<div class="chart-container-3" id="chart-container-3"></div>
@@ -89,11 +87,31 @@
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
+	var table = $('#table1').DataTable( {
+		"ajax": 'json/poolPT.json',
+		"deferRender": true,
+		"lengthMenu": [ 10, 25, 50, 100 ],
+		scrollX: true,
+		columnDefs: [
+			{ orderable: false, targets: [3,4]},
+			{ sorting: false, targets: [3,4]},
+			{"searchable": false, "targets": [2,5] },
+			{
+				targets: 4,
+				data: null,
+				defaultContent: '<button class="j2">Selecionar</button>',
+			},
+			{
+				targets: 3,
+				data: null,
+				defaultContent: '<button class="j1">Selecionar</button>',
+			},
+		],
+	} );
 	function changeparagraph(fa) {
 		$(document).ready(function() {
-			if (primeiro==0){
-			table.destroy();}
-			var table = $('#table1').DataTable( {
+			table.destroy();
+			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
@@ -169,7 +187,7 @@
 		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
 	};
 	
-	changeparagraph("poolPT",1);
+	changeparagraph("poolPT");
 
   	function factorial(num)
 	{
