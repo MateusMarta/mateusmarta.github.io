@@ -2,7 +2,7 @@ var r_a = 1;
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
-	var table;
+	var table =$('#table1').DataTable();
 	function changeparagraph(fa, b=0) {
 		$(document).ready(function() {
 			table.destroy()
