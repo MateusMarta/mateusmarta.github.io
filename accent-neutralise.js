@@ -1,0 +1,1 @@
+!function(){function n(n){return n.normalize?n+" "+n.normalize("NFD").replace(/[\u0300-\u036f]/g,""):n}var t=jQuery.fn.DataTable.ext.type.search;t.string=function(t){return t?"string"==typeof t?n(t):t:""},t.html=function(t){return t?"string"==typeof t?n(t.replace(/<.*?>/g,"")):t:""}}();
