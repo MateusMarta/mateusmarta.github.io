@@ -1,1 +1,165 @@
-var r_a=1,r_b=1,i_a=1,i_b=1,table=$("#table1").DataTable({ajax:"json/poolPT.json",deferRender:!0,lengthMenu:[10,25,50,100],scrollX:!0,columnDefs:[{orderable:!1,targets:[3,4]},{sorting:!1,targets:[3,4]},{searchable:!1,targets:[2,5]},{targets:4,data:null,defaultContent:'<button class="j2">Selecionar</button>'},{targets:3,data:null,defaultContent:'<button class="j1">Selecionar</button>'},]});function changeparagraph(a){$(document).ready(function(){table.destroy(),table=$("#table1").DataTable({ajax:"json/"+a+".json",deferRender:!0,lengthMenu:[10,25,50,100],scrollX:!0,columnDefs:[{orderable:!1,targets:[3,4]},{sorting:!1,targets:[3,4]},{searchable:!1,targets:[2,5]},{targets:4,data:null,defaultContent:'<button class="j2">Selecionar</button>'},{targets:3,data:null,defaultContent:'<button class="j1">Selecionar</button>'},]})}),$("#table1 tbody").on("click","button",function(){if("j1"==this.className){var a=table.row($(this).parents("tr")).data();r_a=a[2],i_a=a[5],document.getElementById("jogador_1").innerHTML="<b>Jogador 1: </b>"+a[1]}else{var a=table.row($(this).parents("tr")).data();r_b=a[2],i_b=a[5],document.getElementById("jogador_2").innerHTML="<b>Jogador 2: </b>"+a[1]}}),fetch("json/ets/"+a+".json").then(function(a){return a.json()}).then(function(a){var t=[],e=[];for(let n=0;n<15;n++)t.push(a.bins[n]);for(let r=0;r<15;r++)e.push(a.histo[r]);document.getElementById("chart-container-3").innerHTML="&nbsp;",document.getElementById("chart-container-3").innerHTML='<canvas id="myChart-3"></canvas>',new Chart("myChart-3",{type:"bar",data:{labels:t,datasets:[{data:e}]},options:{scales:{y:{beginAtZero:!0}},plugins:{legend:!1,title:{display:!0,text:"Distribui\xe7\xe3o de ratings (n\xfamero de jogadores)"}}}})}),document.getElementById("modalidade").innerHTML="Estat\xedsticas "+a,document.getElementById("modalidade2").innerHTML="<b>Modalidade: </b>"+a}function factorial(a){for(var t=1,e=2;e<=a;e++)t*=e;return t}function combs(a,t){return factorial(a)/(factorial(t)*factorial(a-t))}function prob_ganhar(){for(var a=[],t=[],e=[],n=document.getElementById("k").value,r=1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2))),o=0,s=0;s<n;s++){var l=r**n*(1-r)**s*combs(parseFloat(n)+parseFloat(s)-1,s);a.push(n+"-"+s),t.push(Math.round(1e3*l)/10),e.push("green")}for(var s=n-1;s>-1;s--){var l=(1-r)**n*r**s*combs(parseFloat(n)+parseFloat(s)-1,s);a.push(s+"-"+n),t.push(Math.round(1e3*l)/10),e.push("red"),o+=l}document.getElementById("chart-container").innerHTML="&nbsp;",document.getElementById("chart-container").innerHTML='<canvas id="myChart"></canvas>',new Chart("myChart",{type:"bar",data:{labels:a,datasets:[{backgroundColor:e,data:t}]},options:{scales:{y:{beginAtZero:!0}},plugins:{legend:!1,title:{display:!0,text:"Probabilidade de cada resultado (%)"}}}}),document.getElementById("chart-container-2").innerHTML="&nbsp;",document.getElementById("chart-container-2").innerHTML='<canvas id="myChart-2"></canvas>',new Chart("myChart-2",{type:"bar",data:{labels:["Jogador 1","Jogador 2"],datasets:[{backgroundColor:["green","red"],data:[Math.round((1-o)*1e3)/10,Math.round(1e3*o)/10]}]},options:{scales:{y:{beginAtZero:!0}},plugins:{legend:!1,title:{display:!0,text:"Probabilidade total de ganhar (%)"}}}})}changeparagraph("poolPT");
+var r_a = 1;
+	var r_b = 1;
+	var i_a = 1;
+	var i_b = 1;
+	function changeparagraph(fa, b=0) {
+		$(document).ready(function() {
+			if (b==0){
+			table.destroy();}
+			var table = $('#table1').DataTable( {
+				"ajax": 'json/'+fa+'.json',
+				"deferRender": true,
+				"lengthMenu": [ 10, 25, 50, 100 ],
+				scrollX: true,
+				columnDefs: [
+					{ orderable: false, targets: [3,4]},
+					{ sorting: false, targets: [3,4]},
+					{"searchable": false, "targets": [2,5] },
+					{
+						targets: 4,
+						data: null,
+						defaultContent: '<button class="j2">Selecionar</button>',
+					},
+					{
+						targets: 3,
+						data: null,
+						defaultContent: '<button class="j1">Selecionar</button>',
+					},
+				],
+			} );
+		} );
+		
+		$('#table1 tbody').on('click', 'button', function () {
+			if (this.className == "j1"){
+			var data = table.row($(this).parents('tr')).data();
+			r_a = data[2];
+			i_a = data[5];
+			document.getElementById('jogador_1').innerHTML = "<b>Jogador 1: </b>" + data[1];
+			}
+			else {
+			var data = table.row($(this).parents('tr')).data();
+			r_b = data[2];
+			i_b = data[5];   
+			document.getElementById('jogador_2').innerHTML = "<b>Jogador 2: </b>" + data[1];
+			} 
+		});
+		
+		fetch("json/ets/"+fa+".json").then(
+			function(u){ return u.json();}
+	      		).then(
+			function(json){
+		  	  var xValues = [];
+			  var yValues = [];
+			  for(let i = 0; i<15; i++){xValues.push(json["bins"][i]);}
+			  for(let i = 0; i<15; i++){yValues.push(json["histo"][i]);}
+			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
+			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
+			  new Chart("myChart-3", {
+		type: "bar",
+					data: {
+						labels: xValues,
+						datasets: [{
+						data: yValues
+						}]
+					},
+					options: {
+						scales: {
+					y: {
+					    beginAtZero: true,
+
+					}
+				    },
+			plugins: {
+							legend: false,
+							title: {display: true, text: "Distribuição de ratings (número de jogadores)" }
+						}
+					}
+					});
+			}
+	      	)
+		
+		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
+		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
+	};
+	
+	changeparagraph("poolPT", 1);
+
+  	function factorial(num)
+	{
+		var rval=1;
+		for (var i = 2; i <= num; i++)
+			rval = rval * i;
+		return rval;
+	}
+	function combs(a, b){
+		return factorial(a)/(factorial(b)*factorial(a-b));
+	}
+	function prob_ganhar() {
+	var xValues = [];
+	var yValues = [];
+	var barColors = [];
+	var k = document.getElementById('k').value;
+	var p = 1/(1+Math.exp((r_b-r_a)/Math.sqrt(i_a**2+i_b**2)));
+	var p_perder = 0;
+	for(var r=0; r<k; r++){
+		var prob = (p)**k * (1-p)**r * combs(parseFloat(k)+parseFloat(r)-1, r);
+		xValues.push(k+"-"+r);
+		yValues.push(Math.round((prob)*1000)/10);
+		barColors.push("green");
+	}
+	for(var r=k-1; r>-1; r--){
+		var prob = (1-p)**k * p**r * combs(parseFloat(k)+parseFloat(r)-1, r);
+		xValues.push(r+"-"+k);
+		yValues.push(Math.round((prob)*1000)/10);
+		barColors.push("red");
+		p_perder = p_perder + prob;
+	}
+	  document.getElementById("chart-container").innerHTML = '&nbsp;';
+	  document.getElementById("chart-container").innerHTML = '<canvas id="myChart"></canvas>';
+	  new Chart("myChart", {
+		type: "bar",
+		data: {
+			labels: xValues,
+			datasets: [{
+			backgroundColor: barColors,
+			data: yValues
+			}]
+		},
+		options: {
+			scales: {
+                y: {
+                    beginAtZero: true,
+
+                }
+            },
+			plugins: {
+				legend: false,
+				title: {display: true, text: "Probabilidade de cada resultado (%)" }
+			}
+		}
+		});
+	  document.getElementById("chart-container-2").innerHTML = '&nbsp;';
+	  document.getElementById("chart-container-2").innerHTML = '<canvas id="myChart-2"></canvas>';
+	  new Chart("myChart-2", {
+		type: "bar",
+		data: {
+			labels: ["Jogador 1", "Jogador 2"],
+			datasets: [{
+			backgroundColor: ["green", "red"],
+			data: [Math.round((1-p_perder)*1000)/10, Math.round((p_perder)*1000)/10]
+			}]
+		},
+		options: {
+			scales: {
+                y: {
+                    beginAtZero: true,
+
+                }
+            },
+			plugins: {
+				legend: false,
+				title: {display: true, text: "Probabilidade total de ganhar (%)" }
+			}
+		}
+		});
+          }
