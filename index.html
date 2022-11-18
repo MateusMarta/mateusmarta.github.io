@@ -169,8 +169,8 @@ cursor:pointer;  appearance: none;
 			function(json){
 		  	  var xValues = [];
 			  var yValues = [];
-			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
-			  for(let i = 0; i<10; i++){yValues.push(json["histo"][i]);}
+			  for(let i = 0; i<15; i++){xValues.push(json["bins"][i]);}
+			  for(let i = 0; i<15; i++){yValues.push(json["histo"][i]);}
 			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
 			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
 			  new Chart("myChart-3", {
@@ -244,8 +244,8 @@ cursor:pointer;  appearance: none;
 			function(json){
 		  	  var xValues = [];
 			  var yValues = [];
-			  for(let i = 0; i<10; i++){xValues.push(json["bins"][i]);}
-			  for(let i = 0; i<10; i++){yValues.push(json["histo"][i]);}
+			  for(let i = 0; i<15; i++){xValues.push(json["bins"][i]);}
+			  for(let i = 0; i<15; i++){yValues.push(json["histo"][i]);}
 			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
 			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
 			  new Chart("myChart-3", {
