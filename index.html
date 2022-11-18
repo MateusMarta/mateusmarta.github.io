@@ -126,80 +126,10 @@ cursor:pointer;  appearance: none;
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
-	var table = $('#table1').DataTable( {
-		"ajax": 'json/poolPT.json',
-		"deferRender": true,
-		"lengthMenu": [ 10, 25, 50, 100 ],
-		scrollX: true,
-		columnDefs: [
-			{ orderable: false, targets: [3,4]},
-			{ sorting: false, targets: [3,4]},
-			{"searchable": false, "targets": [2,5] },
-			{
-				targets: 4,
-				data: null,
-				defaultContent: '<button class="j2">Selecionar</button>',
-			},
-			{
-				targets: 3,
-				data: null,
-				defaultContent: '<button class="j1">Selecionar</button>',
-			},
-		],
-	} );
-	
-	$('#table1 tbody').on('click', 'button', function () {
-		if (this.className == "j1"){
-		var data = table.row($(this).parents('tr')).data();
-		r_a = data[2];
-		i_a = data[5];
-		document.getElementById('jogador_1').innerHTML = "<b>Jogador 1: </b>" + data[1];
-		}
-		else {
-		var data = table.row($(this).parents('tr')).data();
-		r_b = data[2];
-		i_b = data[5];   
-		document.getElementById('jogador_2').innerHTML = "<b>Jogador 2: </b>" + data[1];
-		} 
-	});
-		
-	fetch("json/ets/poolPT.json").then(
-			function(u){ return u.json();}
-	      		).then(
-			function(json){
-		  	  var xValues = [];
-			  var yValues = [];
-			  for(let i = 0; i<15; i++){xValues.push(json["bins"][i]);}
-			  for(let i = 0; i<15; i++){yValues.push(json["histo"][i]);}
-			  document.getElementById("chart-container-3").innerHTML = '&nbsp;';
-			  document.getElementById("chart-container-3").innerHTML = '<canvas id="myChart-3"></canvas>';
-			  new Chart("myChart-3", {
-		type: "bar",
-					data: {
-						labels: xValues,
-						datasets: [{
-						data: yValues
-						}]
-					},
-					options: {
-						scales: {
-					y: {
-					    beginAtZero: true,
-
-					}
-				    },
-			plugins: {
-							legend: false,
-							title: {display: true, text: "Distribuição de ratings (número de jogadores)" }
-						}
-					}
-					});
-			}
-	      	)
-		
-	function changeparagraph(fa) {
+	function changeparagraph(fa, primeiro=0) {
 		$(document).ready(function() {
-			table.destroy();
+			if (primeiro==0){
+			table.destroy();}
 			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
@@ -275,7 +205,8 @@ cursor:pointer;  appearance: none;
 		document.getElementById('modalidade').innerHTML = "Estatísticas " + fa;
 		document.getElementById('modalidade2').innerHTML = "<b>Modalidade: </b>" + fa;
 	};
-
+	
+	changeparagraph("poolpt",1);
 
   	function factorial(num)
 	{
