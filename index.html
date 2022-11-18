@@ -130,7 +130,7 @@ cursor:pointer;  appearance: none;
 		$(document).ready(function() {
 			if (primeiro==0){
 			table.destroy();}
-			table = $('#table1').DataTable( {
+			var table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
