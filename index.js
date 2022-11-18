@@ -2,11 +2,12 @@ var r_a = 1;
 	var r_b = 1;
 	var i_a = 1;
 	var i_b = 1;
+	var table;
 	function changeparagraph(fa, b=0) {
 		$(document).ready(function() {
 			if (b==0){
 			table.destroy();}
-			var table = $('#table1').DataTable( {
+			table = $('#table1').DataTable( {
 				"ajax": 'json/'+fa+'.json',
 				"deferRender": true,
 				"lengthMenu": [ 10, 25, 50, 100 ],
